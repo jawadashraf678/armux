@@ -1,0 +1,379 @@
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, Shield, Palette, Layers, UserCheck, Hash, Sparkles } from "lucide-react";
+
+export default function TeamwearPage() {
+  // Interactive Customizer Preview state
+  const [jerseyColor, setJerseyColor] = useState("#0B0B0C");
+  const [accentColor, setAccentColor] = useState("#D4AF37");
+  const [teamName, setTeamName] = useState("ARMUX");
+  const [playerNumber, setPlayerNumber] = useState("24");
+
+  return (
+    <div className="bg-white text-zinc-900 min-h-screen">
+      {/* HERO */}
+      <section className="bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
+            TEAMWEAR & CUSTOMIZATION
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-black uppercase font-display tracking-tight text-white mb-6">
+            YOUR VISION. <br />
+            <span className="gold-text">MADE REAL.</span>
+          </h1>
+          <p className="max-w-xl mx-auto text-zinc-300 text-base sm:text-lg">
+            Bring your team&apos;s identity to life with custom sportswear designed around your colors, branding and requirements.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION: WHAT CAN YOU CUSTOMIZE? */}
+      <section className="py-24 bg-white text-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
+              ENDLESS OPTIONS
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950">
+              WHAT CAN YOU <span className="gold-text">CUSTOMIZE?</span>
+            </h2>
+            <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
+              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">01</div>
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">TEAM LOGO</h3>
+              <p className="text-xs text-zinc-600 leading-relaxed">
+                Add your official team or organization logo in high-definition sublimation, woven patch, or gold foil.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
+              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">02</div>
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                <Palette className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">TEAM COLORS</h3>
+              <p className="text-xs text-zinc-600 leading-relaxed">
+                Choose the exact primary, secondary and trim colors that represent your team.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
+              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">03</div>
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                <UserCheck className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">PLAYER NAME</h3>
+              <p className="text-xs text-zinc-600 leading-relaxed">
+                Personalize uniforms with individual player roster names in crisp athletic typography.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
+              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">04</div>
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                <Hash className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">PLAYER NUMBER</h3>
+              <p className="text-xs text-zinc-600 leading-relaxed">
+                Add individual front and back player numbers with custom athletic font outlines.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
+              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">05</div>
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                <Layers className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">CUSTOM DESIGN</h3>
+              <p className="text-xs text-zinc-600 leading-relaxed">
+                Create a unique design around your team&apos;s vision with side geometric patterns, fades, or stripes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERACTIVE CUSTOMIZATION STUDIO PREVIEW */}
+      <section className="py-20 bg-zinc-950 text-white border-y border-amber-500/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-2">
+              INTERACTIVE PREVIEW
+            </span>
+            <h2 className="text-3xl font-black uppercase font-display text-white">
+              TRY THE ARMUX <span className="gold-text">DESIGN LAB</span>
+            </h2>
+            <p className="text-zinc-400 text-xs mt-2">
+              Experiment with colors and roster text below to envision your custom uniform.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-zinc-900 p-8 sm:p-12 rounded-3xl border border-zinc-800">
+            {/* Customizer Controls */}
+            <div className="space-y-6">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
+                  TEAM NAME / CREST TEXT
+                </label>
+                <input
+                  type="text"
+                  value={teamName}
+                  onChange={(e) => setTeamName(e.target.value.toUpperCase())}
+                  maxLength={12}
+                  className="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-4 py-3 text-white font-black tracking-widest uppercase focus:border-amber-400 outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
+                  SAMPLE PLAYER NUMBER
+                </label>
+                <input
+                  type="text"
+                  value={playerNumber}
+                  onChange={(e) => setPlayerNumber(e.target.value)}
+                  maxLength={3}
+                  className="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-4 py-3 text-white font-black text-xl focus:border-amber-400 outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
+                  JERSEY BASE COLOR
+                </label>
+                <div className="flex gap-3">
+                  {[
+                    { name: "Matte Black", code: "#0B0B0C" },
+                    { name: "Charcoal", code: "#1C1C22" },
+                    { name: "Crisp White", code: "#F4F4F6" },
+                  ].map((color) => (
+                    <button
+                      key={color.code}
+                      onClick={() => setJerseyColor(color.code)}
+                      className={`px-4 py-2 rounded-lg text-xs font-bold uppercase border transition-all ${
+                        jerseyColor === color.code
+                          ? "border-amber-400 bg-amber-500/20 text-white"
+                          : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
+                      }`}
+                    >
+                      {color.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
+                  METALLIC ACCENT TRIM
+                </label>
+                <div className="flex gap-3">
+                  {[
+                    { name: "Metallic Gold", code: "#D4AF37" },
+                    { name: "Bright Amber", code: "#F5DF88" },
+                    { name: "Silver Chrome", code: "#E2E8F0" },
+                  ].map((color) => (
+                    <button
+                      key={color.code}
+                      onClick={() => setAccentColor(color.code)}
+                      className={`px-4 py-2 rounded-lg text-xs font-bold uppercase border transition-all ${
+                        accentColor === color.code
+                          ? "border-amber-400 bg-amber-500/20 text-white"
+                          : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
+                      }`}
+                    >
+                      {color.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-zinc-800">
+                <Link
+                  href={`/contact?concept=${encodeURIComponent(`${teamName} #${playerNumber}`)}`}
+                  className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow-lg transition-all"
+                >
+                  <span>SUBMIT THIS CONCEPT FOR A QUOTE</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Visual Canvas Mockup */}
+            <div className="flex items-center justify-center p-8 bg-zinc-950 rounded-2xl border border-zinc-800 min-h-[380px] relative overflow-hidden">
+              <div
+                className="w-64 h-80 rounded-3xl border-4 transition-all duration-300 shadow-2xl flex flex-col items-center justify-between p-6 relative"
+                style={{
+                  backgroundColor: jerseyColor,
+                  borderColor: accentColor,
+                }}
+              >
+                {/* Collar Ribbing */}
+                <div
+                  className="w-24 h-6 border-b-4 rounded-b-xl"
+                  style={{ borderColor: accentColor }}
+                />
+
+                {/* Team Name */}
+                <div
+                  className="text-2xl font-black tracking-widest uppercase font-display text-center"
+                  style={{ color: accentColor }}
+                >
+                  {teamName || "ARMUX"}
+                </div>
+
+                {/* Number */}
+                <div
+                  className="text-6xl font-black tracking-tighter font-display"
+                  style={{ color: accentColor }}
+                >
+                  {playerNumber || "00"}
+                </div>
+
+                {/* Bottom Jock Tag */}
+                <div
+                  className="px-3 py-1 border text-[9px] font-bold uppercase tracking-widest rounded"
+                  style={{ borderColor: accentColor, color: accentColor }}
+                >
+                  ARMUX CUSTOM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: COACH UNIFORMS */}
+      <section className="py-24 bg-white text-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[420px] rounded-3xl overflow-hidden border border-zinc-200 shadow-2xl">
+              <Image
+                src="/images/coach_uniform.jpg"
+                alt="ARMUX Coach Uniforms"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+
+            <div className="space-y-6">
+              <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block">
+                STAFF TEAMWEAR
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 leading-tight">
+                LEAD. INSPIRE. <br />
+                <span className="gold-text">DOMINATE.</span>
+              </h2>
+              <p className="text-zinc-600 leading-relaxed">
+                Professional teamwear isn&apos;t only for the players. ARMUX coach uniforms combine a professional look with comfortable, lightweight and durable construction.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
+                    PROFESSIONAL LOOK
+                  </div>
+                  <div className="text-xs text-zinc-600">Tailored polo collar & clean embroidery</div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
+                    DURABLE
+                  </div>
+                  <div className="text-xs text-zinc-600">Reinforced stitching for intense seasons</div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
+                    BREATHABLE
+                  </div>
+                  <div className="text-xs text-zinc-600">Airflow mesh inserts keep coaches cool</div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
+                    LIGHTWEIGHT
+                  </div>
+                  <div className="text-xs text-zinc-600">High comfort performance blend</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: HOW IT WORKS */}
+      <section className="py-24 bg-zinc-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
+              THE WORKFLOW
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display">
+              HOW IT <span className="gold-text">WORKS</span>
+            </h2>
+            <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
+              <div className="text-3xl font-black text-amber-400 font-display mb-4">01</div>
+              <h3 className="text-lg font-bold uppercase mb-2">SHARE YOUR IDEA</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Send your design, reference, logo or concept to our team via inquiry or WhatsApp.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
+              <div className="text-3xl font-black text-amber-400 font-display mb-4">02</div>
+              <h3 className="text-lg font-bold uppercase mb-2">CUSTOMIZE</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Choose colors, patterns, names, numbers and branding details for your squad.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
+              <div className="text-3xl font-black text-amber-400 font-display mb-4">03</div>
+              <h3 className="text-lg font-bold uppercase mb-2">APPROVE YOUR DESIGN</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Review your customized digital design proof to ensure exact visual perfection.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
+              <div className="text-3xl font-black text-amber-400 font-display mb-4">04</div>
+              <h3 className="text-lg font-bold uppercase mb-2">WE MAKE IT REAL</h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Your custom teamwear moves from digital concept into manufactured finished products.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-amber-400 text-black text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-4">
+            NO IDEA IS TOO BIG. <br />
+            LET&apos;S DESIGN IT FOR YOUR TEAM.
+          </h2>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded shadow-xl transition-all"
+          >
+            GET A QUOTE
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
