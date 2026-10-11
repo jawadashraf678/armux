@@ -8,23 +8,42 @@ import { ArrowRight, CheckCircle2, Shield, Palette, Layers, UserCheck, Hash, Spa
 export default function TeamwearPage() {
   // Interactive Customizer Preview state
   const [jerseyColor, setJerseyColor] = useState("#0B0B0C");
-  const [accentColor, setAccentColor] = useState("#D4AF37");
+  const [accentColor, setAccentColor] = useState("#CCA044");
   const [teamName, setTeamName] = useState("ARMUX");
   const [playerNumber, setPlayerNumber] = useState("24");
+
+  // 15-Color Swatch Palette matching official athletics palette
+  const colorPalette = [
+    { name: "Black", code: "#0B0B0C" },
+    { name: "White", code: "#FFFFFF" },
+    { name: "Silver Grey", code: "#808080" },
+    { name: "Athletic Gold", code: "#CCA044" },
+    { name: "Midnight Navy", code: "#111E38" },
+    { name: "Royal Blue", code: "#113F8A" },
+    { name: "Sky Blue", code: "#4FA8E0" },
+    { name: "Kelly Green", code: "#0C6E3D" },
+    { name: "Forest Green", code: "#0B281B" },
+    { name: "Crimson Red", code: "#A11B22" },
+    { name: "Sport Pink", code: "#EB548F" },
+    { name: "Vibrant Orange", code: "#DF5717" },
+    { name: "Deep Purple", code: "#5C1C8A" },
+    { name: "Dark Plum", code: "#331A4B" },
+    { name: "Maroon", code: "#4D141C" },
+  ];
 
   return (
     <div className="bg-white text-zinc-900 min-h-screen">
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
+          <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase block mb-3">
             TEAMWEAR & CUSTOMIZATION
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black uppercase font-display tracking-tight text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
             YOUR VISION. <br />
             <span className="gold-text">MADE REAL.</span>
           </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-base sm:text-lg">
+          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
             Bring your team&apos;s identity to life with custom sportswear designed around your colors, branding and requirements.
           </p>
         </div>
@@ -146,59 +165,99 @@ export default function TeamwearPage() {
                 />
               </div>
 
+              {/* JERSEY BASE COLOR PALETTE */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
-                  JERSEY BASE COLOR
-                </label>
-                <div className="flex gap-3">
-                  {[
-                    { name: "Matte Black", code: "#0B0B0C" },
-                    { name: "Charcoal", code: "#1C1C22" },
-                    { name: "Crisp White", code: "#F4F4F6" },
-                  ].map((color) => (
-                    <button
-                      key={color.code}
-                      onClick={() => setJerseyColor(color.code)}
-                      className={`px-4 py-2 rounded-lg text-xs font-bold uppercase border transition-all ${
-                        jerseyColor === color.code
-                          ? "border-amber-400 bg-amber-500/20 text-white"
-                          : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
-                      }`}
-                    >
-                      {color.name}
-                    </button>
-                  ))}
+                <div className="flex items-center justify-between mb-2.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-amber-400">
+                    JERSEY BASE COLOR
+                  </label>
+                  <span className="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-zinc-800 text-amber-400 border border-zinc-700">
+                    {colorPalette.find((c) => c.code.toLowerCase() === jerseyColor.toLowerCase())?.name || "Custom"}
+                  </span>
+                </div>
+                <div className="grid grid-cols-5 gap-2.5 sm:gap-3 max-w-xs">
+                  {colorPalette.map((color) => {
+                    const isSelected = jerseyColor.toLowerCase() === color.code.toLowerCase();
+                    const isLight = color.code.toLowerCase() === "#ffffff";
+                    return (
+                      <button
+                        key={`base-${color.name}`}
+                        type="button"
+                        onClick={() => setJerseyColor(color.code)}
+                        title={color.name}
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full transition-all duration-200 relative group flex items-center justify-center cursor-pointer ${
+                          isSelected
+                            ? "ring-2 ring-amber-400 ring-offset-2 ring-offset-zinc-900 scale-110 shadow-lg shadow-black/60 z-10"
+                            : "hover:scale-110 hover:shadow-md opacity-90 hover:opacity-100"
+                        } ${isLight ? "border-2 border-zinc-400" : "border border-white/15"}`}
+                        style={{ backgroundColor: color.code }}
+                      >
+                        {isSelected && (
+                          <span
+                            className={`w-2.5 h-2.5 rounded-full shadow-sm ${
+                              isLight ? "bg-black" : "bg-white"
+                            }`}
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
+              {/* METALLIC ACCENT TRIM PALETTE */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
-                  METALLIC ACCENT TRIM
-                </label>
-                <div className="flex gap-3">
-                  {[
-                    { name: "Metallic Gold", code: "#D4AF37" },
-                    { name: "Bright Amber", code: "#F5DF88" },
-                    { name: "Silver Chrome", code: "#E2E8F0" },
-                  ].map((color) => (
-                    <button
-                      key={color.code}
-                      onClick={() => setAccentColor(color.code)}
-                      className={`px-4 py-2 rounded-lg text-xs font-bold uppercase border transition-all ${
-                        accentColor === color.code
-                          ? "border-amber-400 bg-amber-500/20 text-white"
-                          : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
-                      }`}
-                    >
-                      {color.name}
-                    </button>
-                  ))}
+                <div className="flex items-center justify-between mb-2.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-amber-400">
+                    METALLIC ACCENT TRIM
+                  </label>
+                  <span className="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-zinc-800 text-amber-400 border border-zinc-700">
+                    {colorPalette.find((c) => c.code.toLowerCase() === accentColor.toLowerCase())?.name || "Custom"}
+                  </span>
+                </div>
+                <div className="grid grid-cols-5 gap-2.5 sm:gap-3 max-w-xs">
+                  {colorPalette.map((color) => {
+                    const isSelected = accentColor.toLowerCase() === color.code.toLowerCase();
+                    const isLight = color.code.toLowerCase() === "#ffffff";
+                    return (
+                      <button
+                        key={`accent-${color.name}`}
+                        type="button"
+                        onClick={() => setAccentColor(color.code)}
+                        title={color.name}
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full transition-all duration-200 relative group flex items-center justify-center cursor-pointer ${
+                          isSelected
+                            ? "ring-2 ring-amber-400 ring-offset-2 ring-offset-zinc-900 scale-110 shadow-lg shadow-black/60 z-10"
+                            : "hover:scale-110 hover:shadow-md opacity-90 hover:opacity-100"
+                        } ${isLight ? "border-2 border-zinc-400" : "border border-white/15"}`}
+                        style={{ backgroundColor: color.code }}
+                      >
+                        {isSelected && (
+                          <span
+                            className={`w-2.5 h-2.5 rounded-full shadow-sm ${
+                              isLight ? "bg-black" : "bg-white"
+                            }`}
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
               <div className="pt-4 border-t border-zinc-800">
                 <Link
-                  href={`/contact?concept=${encodeURIComponent(`${teamName} #${playerNumber}`)}`}
+                  href={`/contact?concept=${encodeURIComponent(
+                    `${teamName} #${playerNumber} (Base: ${
+                      colorPalette.find(
+                        (c) => c.code.toLowerCase() === jerseyColor.toLowerCase()
+                      )?.name || jerseyColor
+                    }, Accent: ${
+                      colorPalette.find(
+                        (c) => c.code.toLowerCase() === accentColor.toLowerCase()
+                      )?.name || accentColor
+                    })`
+                  )}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow-lg transition-all"
                 >
                   <span>SUBMIT THIS CONCEPT FOR A QUOTE</span>

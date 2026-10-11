@@ -102,14 +102,14 @@ export default function BasketballPage() {
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
+          <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase block mb-3">
             BASKETBALL COLLECTION
           </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase font-display tracking-tight text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
             BASKETBALL <br />
             <span className="gold-text">BUILT FOR THE GAME.</span>
           </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-base sm:text-lg">
+          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
             Custom basketball uniforms and official match gear designed around your team&apos;s identity.
           </p>
         </div>
@@ -128,11 +128,17 @@ export default function BasketballPage() {
             <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {basketballJerseys.map((jersey) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+            {basketballJerseys.map((jersey, idx) => (
               <div
                 key={jersey.name}
-                className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col group"
+                className={`rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col group lg:col-span-2 ${
+                  idx === 3 ? "lg:col-start-2" : ""
+                } ${
+                  idx === 4
+                    ? "md:col-span-2 md:max-w-md md:mx-auto lg:max-w-none lg:mx-0 w-full"
+                    : ""
+                }`}
               >
                 <div className="relative h-80 bg-zinc-100 overflow-hidden">
                   <Image
@@ -190,11 +196,17 @@ export default function BasketballPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {basketballList.map((ball) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+            {basketballList.map((ball, idx) => (
               <div
                 key={ball.id}
-                className="rounded-3xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 transition-all duration-300 shadow-2xl flex flex-col group overflow-hidden"
+                className={`rounded-3xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 transition-all duration-300 shadow-2xl flex flex-col group overflow-hidden lg:col-span-2 ${
+                  idx === 3 ? "lg:col-start-2" : ""
+                } ${
+                  idx === 4
+                    ? "md:col-span-2 md:max-w-md md:mx-auto lg:max-w-none lg:mx-0 w-full"
+                    : ""
+                }`}
               >
                 <div className="relative h-72 bg-zinc-950 p-6 flex items-center justify-center overflow-hidden">
                   <Image

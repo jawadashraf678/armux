@@ -196,7 +196,7 @@ function ProductsContent() {
       id: "sports-accessories",
       name: "SPORTS ACCESSORIES KIT",
       category: "ACCESSORIES",
-      image: "/images/accessories_grid.jpg",
+      image: "/images/b acc.jpg",
       description: "Complete set of athletic accessories: Headbands, Wristbands, Knee Pads, Arm Sleeves, Socks, Ankle Braces.",
       features: ["Headbands & Wristbands", "Compression Arm Sleeves", "Protective Knee Pads", "Custom Team Socks"],
     },
@@ -222,17 +222,17 @@ function ProductsContent() {
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-amber-500/30 mb-6">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span className="text-xs font-bold tracking-[0.2em] text-amber-300 uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-amber-500/30 mb-6 max-w-full">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-amber-300 uppercase truncate sm:whitespace-normal">
               ARMUX PRODUCT CATALOG
             </span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black uppercase font-display tracking-tight text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
             SPORTSWEAR MADE <br />
             <span className="gold-text">AROUND YOUR TEAM.</span>
           </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-base sm:text-lg leading-relaxed">
+          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg leading-relaxed px-2">
             Explore ARMUX&apos;s full range of custom athletic uniforms, high-performance jerseys, sportswear apparel, and team accessories.
           </p>
         </div>

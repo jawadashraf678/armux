@@ -80,26 +80,26 @@ export default function TrainingSuitsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30">
-                <Sparkles className="w-4 h-4 text-amber-400" />
-                <span className="text-xs font-black tracking-[0.25em] text-amber-300 uppercase">
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 max-w-full">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
+                <span className="text-[10px] sm:text-xs font-black tracking-[0.15em] sm:tracking-[0.25em] text-amber-300 uppercase">
                   ARMUX DRILL & AGILITY GEAR
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl font-black uppercase font-display tracking-tight text-white leading-none">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white leading-tight break-words">
                 PRECISION <br />
                 <span className="gold-text">TRAINING SUITS</span>
               </h1>
 
-              <p className="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed">
+              <p className="text-zinc-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Form-fitting, ultra-responsive athletic drill suits designed for maximum workout output. 
                 Equipped with lightweight sweat-wicking poly-spandex, ergonomic thumbhole loops, and streamline taper pants.
               </p>
 
               {/* Quick Specs Pills */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 w-full max-w-lg">
                 <div className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
                   <div className="text-amber-400 font-black text-lg">1/4 ZIP TOP</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Custom Neck Airflow</div>
@@ -114,17 +114,17 @@ export default function TrainingSuitsPage() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-4 w-full">
                 <Link
                   href={`/contact?product=${encodeURIComponent("ARMUX Training Suit - " + activeColorway.name)}`}
-                  className="px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
                 >
                   <span>ORDER TRAINING SUITS</span>
                   <ChevronRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="#colorways"
-                  className="px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all"
+                  className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all"
                 >
                   VIEW DRILL EDITIONS
                 </a>

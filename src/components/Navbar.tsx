@@ -10,6 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Navbar() {
 
   const productCategories = [
     { name: "ALL PRODUCTS", href: "/products", desc: "Full teamwear & equipment catalog" },
-    { name: "HOODIES", href: "/hoodies", desc: "Pullover & striped team hoodies in 5 colors", highlight: true },
+    { name: "HOODIES", href: "/hoodies", desc: "Pullover & striped team hoodies in 5 colors" },
     { name: "WARM UP SUITS", href: "/warmup-suits", desc: "Full-zip tracksuits & sideline travel kits" },
     { name: "TRAINING SUITS", href: "/training-suits", desc: "1/4 zip drill suits & agility track kits" },
     { name: "COMPRESSION GEAR", href: "/compression", desc: "Vascular support tops & muscle recovery tights" },
@@ -50,6 +51,42 @@ export default function Navbar() {
     { name: "GAME JERSEYS", href: "/products?category=JERSEYS", desc: "Elite, legacy & reversible singlets" },
     { name: "SPORTS ACCESSORIES", href: "/accessories", desc: "Headbands, sleeves, socks & basketballs" },
   ];
+
+  // Auto-detect which category matches current URL
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const full = window.location.pathname + window.location.search;
+      const matched = productCategories.find((cat) => {
+        if (cat.href === "/products") {
+          return window.location.pathname === "/products" && !window.location.search;
+        }
+        if (cat.href.includes("?")) {
+          return full === cat.href;
+        }
+        return window.location.pathname === cat.href;
+      });
+      if (matched) {
+        setSelectedCategory(matched.name);
+      }
+    }
+  }, [pathname]);
+
+  const isCategoryActive = (item: { name: string; href: string }) => {
+    if (selectedCategory) {
+      return selectedCategory === item.name;
+    }
+    if (typeof window !== "undefined") {
+      const full = window.location.pathname + window.location.search;
+      if (item.href === "/products") {
+        return window.location.pathname === "/products" && !window.location.search;
+      }
+      if (item.href.includes("?")) {
+        return full === item.href;
+      }
+      return window.location.pathname === item.href;
+    }
+    return pathname === item.href;
+  };
 
   return (
     <header
@@ -98,33 +135,48 @@ export default function Navbar() {
                           </span>
                           <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                         </div>
-                        {productCategories.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className={`flex flex-col px-3 py-2 rounded-xl transition-all ${
-                              item.highlight
-                                ? "bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/50"
-                                : "bg-[#121215] hover:bg-[#18181d] border border-zinc-800/80"
-                            }`}
-                          >
-                            <div className="flex items-center justify-between">
-                              <span className={`text-xs font-black uppercase tracking-wider ${
-                                item.highlight ? "text-amber-400" : "text-white"
-                              }`}>
-                                {item.name}
-                              </span>
-                              {item.highlight && (
-                                <span className="text-[9px] font-black bg-amber-400 text-black px-1.5 py-0.5 rounded uppercase">
-                                  HOT
+                        {productCategories.map((item) => {
+                          const isActive = isCategoryActive(item);
+                          return (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => setSelectedCategory(item.name)}
+                              className={`flex flex-col px-3 py-2.5 rounded-xl transition-all duration-200 ${
+                                isActive
+                                  ? "bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/60 shadow-[0_0_15px_rgba(251,191,36,0.18)]"
+                                  : "bg-[#121215] hover:bg-[#18181d] border border-zinc-800/80 hover:border-zinc-700"
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span
+                                  className={`text-xs font-black uppercase tracking-wider ${
+                                    isActive ? "text-amber-400" : "text-white"
+                                  }`}
+                                >
+                                  {item.name}
                                 </span>
-                              )}
-                            </div>
-                            <span className="text-[10px] text-zinc-400 mt-0.5 font-medium">
-                              {item.desc}
-                            </span>
-                          </Link>
-                        ))}
+                                {isActive ? (
+                                  <span className="text-[9px] font-black bg-amber-400 text-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
+                                    ACTIVE
+                                  </span>
+                                ) : item.name === "HOODIES" ? (
+                                  <span className="text-[9px] font-black bg-zinc-800 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded uppercase">
+                                    HOT
+                                  </span>
+                                ) : null}
+                              </div>
+                              <span
+                                className={`text-[10px] mt-0.5 font-medium ${
+                                  isActive ? "text-amber-200/90 font-semibold" : "text-zinc-400"
+                                }`}
+                              >
+                                {item.desc}
+                              </span>
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -210,24 +262,35 @@ export default function Navbar() {
 
                     {mobileProductsOpen && (
                       <div className="pl-4 pr-2 py-2 space-y-1.5 bg-[#09090b] rounded-xl border border-amber-500/30">
-                        {productCategories.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider ${
-                              item.highlight
-                                ? "text-amber-400 bg-amber-500/10"
-                                : "text-zinc-300 hover:text-white"
-                            }`}
-                          >
-                            <span>{item.name}</span>
-                            {item.highlight && (
-                              <span className="text-[9px] bg-amber-400 text-black px-1.5 py-0.5 rounded font-black">
-                                HOT
-                              </span>
-                            )}
-                          </Link>
-                        ))}
+                        {productCategories.map((item) => {
+                          const isActive = isCategoryActive(item);
+                          return (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => {
+                                setSelectedCategory(item.name);
+                                setMobileMenuOpen(false);
+                              }}
+                              className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                                isActive
+                                  ? "text-amber-400 bg-amber-500/20 border border-amber-500/60 shadow-sm"
+                                  : "text-zinc-300 hover:text-white bg-[#121215] border border-zinc-800/80"
+                              }`}
+                            >
+                              <span>{item.name}</span>
+                              {isActive ? (
+                                <span className="text-[9px] bg-amber-400 text-black px-1.5 py-0.5 rounded font-black tracking-wider shadow-sm">
+                                  ACTIVE
+                                </span>
+                              ) : item.name === "HOODIES" ? (
+                                <span className="text-[9px] bg-zinc-800 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded font-black">
+                                  HOT
+                                </span>
+                              ) : null}
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </div>

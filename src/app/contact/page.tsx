@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -32,61 +32,75 @@ function FaqAccordion() {
 
   const faqs = [
     {
+      id: "01",
       q: "What is the Minimum Order Quantity (MOQ)?",
       a: "ARMUX accommodates both small team orders and full club roster packages. Flexible MOQs are available for initial squad orders and sample runs. Contact our sales department on WhatsApp for specific squad size recommendations."
     },
     {
+      id: "02",
       q: "What customization options are available?",
       a: "We offer complete full-dye sublimation, high-density embroidery, custom collar cuts, ribbed trims, athletic waistbands, side mesh ventilation panels, custom typography fonts, and roster-wide player numbers."
     },
     {
+      id: "03",
       q: "How do I submit artwork or team logos?",
       a: "Vector format files (.AI, .EPS, .PDF) provide the sharpest printing clarity. You can also upload your logo file directly in our inquiry form or send high-resolution PNG / JPG files via email or WhatsApp."
     },
     {
+      id: "04",
       q: "Can I request samples before placing a full team order?",
       a: "Yes! Fabric swatches, color proofing chips, and physical pre-production sample kits can be prepared upon request for team board or athletic director approval."
     },
     {
+      id: "05",
       q: "What are the standard payment terms?",
       a: "Production begins upon digital mockup approval and receipt of initial order deposit, with the remaining balance settled prior to final quality dispatch."
     },
     {
+      id: "06",
       q: "What are the estimated delivery timelines?",
       a: "Timelines depend on overall order quantity, printing technique, and shipping destination. Firm dispatch dates are confirmed immediately upon artwork proof approval."
     }
   ];
 
   return (
-    <div className="space-y-4 max-w-4xl mx-auto">
+    <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto px-1 sm:px-0">
       {faqs.map((faq, idx) => {
         const isOpen = openIndex === idx;
         return (
           <div 
             key={idx} 
-            className={`rounded-2xl bg-white border transition-all duration-300 overflow-hidden ${
+            className={`rounded-2xl transition-all duration-200 overflow-hidden border ${
               isOpen 
-                ? "border-amber-500 shadow-xl ring-2 ring-amber-400/20 -translate-y-0.5" 
-                : "border-zinc-200 shadow-md hover:border-amber-400 hover:shadow-lg hover:-translate-y-0.5"
+                ? "bg-white border-amber-400/90 shadow-md ring-2 ring-amber-400/15" 
+                : "bg-white border-zinc-200/90 hover:border-amber-400/60 shadow-xs hover:shadow-sm"
             }`}
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : idx)}
-              className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-zinc-900 font-display group cursor-pointer select-none"
+              className="w-full p-4 sm:p-5 text-left flex items-start sm:items-center justify-between gap-3 group cursor-pointer select-none"
               aria-expanded={isOpen}
             >
-              <span className="flex items-center gap-3">
-                <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                  isOpen ? "bg-amber-500 text-black scale-110" : "bg-amber-50 text-amber-600 group-hover:scale-105"
+              <div className="flex items-start sm:items-center gap-3 sm:gap-3.5 min-w-0">
+                <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[11px] sm:text-xs font-black shrink-0 transition-all mt-0.5 sm:mt-0 ${
+                  isOpen 
+                    ? "bg-amber-400 text-black font-mono shadow-xs" 
+                    : "bg-zinc-100 text-zinc-500 font-mono group-hover:bg-amber-100 group-hover:text-amber-800"
                 }`}>
-                  <HelpCircle className="w-5 h-5 shrink-0" />
-                </div>
-                <span className="group-hover:text-amber-600 transition-colors duration-200">{faq.q}</span>
-              </span>
-              <span className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                isOpen ? "bg-amber-500 text-black rotate-180" : "bg-zinc-100 text-zinc-600 group-hover:bg-amber-100 group-hover:text-amber-700"
+                  {faq.id}
+                </span>
+                <span className={`text-xs sm:text-base font-extrabold transition-colors leading-snug font-display break-words ${
+                  isOpen ? "text-amber-600" : "text-zinc-900 group-hover:text-amber-600"
+                }`}>
+                  {faq.q}
+                </span>
+              </div>
+              <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 mt-0.5 sm:mt-0 ${
+                isOpen 
+                  ? "bg-amber-400 text-black rotate-180 shadow-xs" 
+                  : "bg-zinc-100 text-zinc-500 group-hover:bg-amber-100 group-hover:text-amber-700"
               }`}>
-                <ChevronDown className="w-5 h-5 transition-transform duration-300" />
+                <ChevronDown className="w-4 h-4 transition-transform duration-300" />
               </span>
             </button>
             
@@ -96,7 +110,7 @@ function FaqAccordion() {
               }`}
             >
               <div className="overflow-hidden">
-                <div className="px-6 pb-6 pt-2 text-zinc-600 text-sm leading-relaxed border-t border-zinc-100">
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-zinc-600 text-xs sm:text-sm leading-relaxed border-t border-zinc-100/80 pl-14 sm:pl-16">
                   {faq.a}
                 </div>
               </div>
@@ -109,6 +123,7 @@ function FaqAccordion() {
 }
 
 function ContactFormContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const preSelectedProduct = searchParams.get("product") || "";
   const preSelectedConcept = searchParams.get("concept") || "";
@@ -155,6 +170,14 @@ function ContactFormContent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    const query = new URLSearchParams({
+      name: formData.fullName || "Coach",
+      team: formData.teamOrganization || "Your Team",
+      qty: formData.estimatedQuantity || "Full Squad Order",
+      contact: formData.preferredContact || "WhatsApp",
+      product: formData.lookingFor || "Custom Sportswear",
+    }).toString();
+    router.push(`/thank-you?${query}`);
   };
 
   const customizationCards = [
@@ -162,7 +185,7 @@ function ContactFormContent() {
       id: "jerseys",
       title: "BASKETBALL JERSEYS",
       subtitle: "Full-Dye Sublimated & Cut-Sleeve Cuts",
-      image: "/images/contact_jersey.jpg",
+      image: "/images/shirt.jpg",
       badge: "CORE TEAMWEAR",
       description: "Custom neckline options (V-neck, round cut), moisture-wicking athletic polyester, and fade-resistant team color sublimation."
     },
@@ -170,7 +193,7 @@ function ContactFormContent() {
       id: "shorts",
       title: "MATCHING SHORTS",
       subtitle: "Ergonomic Cuts & Mesh Inserts",
-      image: "/images/contact_shorts.jpg",
+      image: "/images/shorts.jpg",
       badge: "ATHLETIC FIT",
       description: "Reinforced elastic waistband with internal drawstring, optional side seam slits, and targeted ventilation zones."
     },
@@ -249,14 +272,14 @@ function ContactFormContent() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-amber-500/40 backdrop-blur-md mb-6">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span className="text-xs font-black tracking-[0.25em] text-amber-300 uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-amber-500/40 backdrop-blur-md mb-6 max-w-full">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
+            <span className="text-[10px] sm:text-xs font-black tracking-[0.12em] sm:tracking-[0.25em] text-amber-300 uppercase truncate sm:whitespace-normal">
               ARMUX CUSTOM SPORTWEAR CONSULTATION
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-7xl font-black uppercase font-display tracking-tight text-white mb-6 leading-none">
+          <h1 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase font-display tracking-tight text-white mb-6 leading-tight break-words px-2">
             LET&apos;S TALK <span className="gold-text">TEAMWEAR.</span>
           </h1>
 
@@ -739,16 +762,17 @@ function ContactFormContent() {
       </section>
 
       {/* SECTION 4: FREQUENTLY ASKED QUESTIONS - SOFT LIGHT ZINC */}
-      <section className="py-24 bg-zinc-50 text-zinc-900 border-b border-zinc-200">
+      <section className="py-16 sm:py-24 bg-zinc-50 text-zinc-900 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 px-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[10px] sm:text-xs font-black tracking-widest text-amber-600 uppercase mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
               GOT QUESTIONS?
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase font-display text-zinc-950 mb-3 tracking-tight leading-tight break-words">
               FREQUENTLY ASKED <span className="gold-text">QUESTIONS</span>
             </h2>
-            <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-zinc-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mx-auto">
               Everything you need to know about custom ordering, vector sizing, proof approval, and bulk deliveries.
             </p>
           </div>

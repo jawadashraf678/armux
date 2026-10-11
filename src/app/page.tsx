@@ -81,19 +81,19 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/80 border border-amber-500/40 backdrop-blur-md mb-8">
-            <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
-            <span className="text-xs font-bold tracking-[0.25em] text-amber-300 uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-amber-500/40 backdrop-blur-md mb-6 sm:mb-8 max-w-full">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] sm:tracking-[0.25em] text-amber-300 uppercase truncate sm:whitespace-normal">
               CUSTOM BASKETBALL WEAR AND GEAR
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase font-display leading-[0.95] max-w-5xl mx-auto mb-8">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase font-display leading-[1.05] sm:leading-[0.95] max-w-5xl mx-auto mb-6 sm:mb-8 break-words px-2">
             CUSTOM BASKETBALL WEAR & GEAR <br />
             <span className="gold-text">BUILT FOR YOUR TEAM.</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-zinc-300 font-normal leading-relaxed mb-10">
+          <p className="max-w-2xl mx-auto text-base sm:text-xl text-zinc-300 font-normal leading-relaxed mb-8 sm:mb-10 px-2">
             Premium custom basketball uniforms and teamwear designed around your identity, your colors, and your game.
           </p>
 
@@ -226,7 +226,7 @@ export default function HomePage() {
               {
                 title: "ACCESSORIES",
                 subtitle: "Headbands, Sleeves & Socks",
-                image: "/images/accessories_grid.jpg",
+                image: "/images/b acc.jpg",
                 link: "/accessories",
               },
             ].map((cat) => (

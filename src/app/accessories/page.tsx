@@ -297,37 +297,37 @@ export default function AccessoriesPage() {
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
+          <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase block mb-3">
             ARMUX ATHLETIC ACCESSORIES
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black uppercase font-display tracking-tight text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
             COMPLETE <span className="gold-text">THE KIT.</span>
           </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-base sm:text-lg">
+          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
             Featuring the signature ARMUX Golden Wolf emblem across 4 core team colorways.
           </p>
         </div>
       </section>
 
-      {/* COLORWAY SELECTION BAR */}
-      <section className="py-6 bg-zinc-900 border-b border-zinc-800 text-white sticky top-16 z-30 shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Palette className="w-5 h-5 text-amber-400" />
-            <span className="text-xs font-extrabold uppercase tracking-widest text-zinc-300">
+      {/* COLORWAY SELECTION BAR (Non-sticky on mobile so it doesn't block products, sleek & compact) */}
+      <section className="py-2.5 sm:py-3.5 bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800 text-white relative md:sticky md:top-20 z-30 shadow-md transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4">
+          <div className="flex items-center gap-2 shrink-0">
+            <Palette className="w-4 h-4 text-amber-400 shrink-0" />
+            <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-300">
               SWITCH ALL TEAM COLORS:
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full sm:w-auto -mx-1 px-1 sm:mx-0 sm:px-0">
             {colorways.map((cw) => (
               <button
                 key={cw.id}
                 onClick={() => handleGlobalColorSelect(cw.id)}
-                className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 ${cw.bg} ${
+                className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer ${cw.bg} ${
                   globalColor === cw.id
-                    ? "ring-2 ring-amber-400 scale-105 shadow-lg"
-                    : "opacity-80 hover:opacity-100"
+                    ? "ring-2 ring-amber-400 scale-105 shadow-md"
+                    : "opacity-80 hover:opacity-100 hover:scale-102"
                 }`}
               >
                 {cw.name}
