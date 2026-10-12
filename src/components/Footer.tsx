@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center space-x-3 pt-2">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1DefhQb8Cj/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 transition-all"
@@ -33,7 +33,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/armuxofficial?exln=MWI1Y3IydGM4bTVwNA=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 transition-all"

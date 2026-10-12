@@ -118,21 +118,104 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION: OUR VISION */}
-      <section className="py-24 bg-zinc-950 text-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16 sm:py-20 bg-zinc-950 text-white relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
               OUR VISION
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-8">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-5">
               MORE THAN <span className="gold-text">SPORTSWEAR.</span>
             </h2>
-            <p className="text-lg text-zinc-300 leading-relaxed mb-10">
+            <div className="w-16 h-1 bg-amber-500 mx-auto mb-5 rounded-full" />
+            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
               ARMUX is built around the idea that teamwear should represent the identity of the people wearing it.
             </p>
+          </div>
 
-            {/* Vision Pillars Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+          {/* TWO FEMALE MODELS PHOTOGRAPHS */}
+          <div className="max-w-4xl mx-auto mb-10 sm:mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              {/* Model Card 1 - Anum Fatima */}
+              <div className="group relative rounded-2xl overflow-hidden border border-amber-500/30 bg-zinc-900/90 shadow-2xl hover:border-amber-400/60 transition-all duration-500">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src="/images/about_female_model_1.jpg"
+                    alt="Anum Fatima - Co-Founder ARMUX"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 440px"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                    priority
+                  />
+
+                  {/* Top vignette for badge legibility */}
+                  <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-zinc-950/70 to-transparent pointer-events-none" />
+
+                  {/* Top Badge: CO-FOUNDER */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/85 border border-amber-500/40 backdrop-blur-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-amber-300">
+                      CO-FOUNDER
+                    </span>
+                  </div>
+
+                  {/* Bottom Gradient Overlay for optimal text readability */}
+                  <div className="absolute bottom-0 inset-x-0 pt-20 pb-5 px-5 sm:px-6 bg-gradient-to-t from-zinc-950 via-zinc-950/85 via-50% to-transparent">
+                    <div className="h-0.5 w-10 bg-amber-400 mb-2 group-hover:w-16 transition-all duration-300" />
+                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white font-display leading-tight drop-shadow-sm">
+                      ANUM FATIMA
+                    </h3>
+                    <p className="text-xs sm:text-[13px] font-bold text-amber-300/95 tracking-wider uppercase mt-1">
+                      CO-FOUNDER, ARMUX
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Model Card 2 - Arooba */}
+              <div className="group relative rounded-2xl overflow-hidden border border-amber-500/30 bg-zinc-900/90 shadow-2xl hover:border-amber-400/60 transition-all duration-500">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src="/images/about_female_model_2.jpg"
+                    alt="Arooba - Co-Founder ARMUX"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 440px"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    priority
+                  />
+
+                  {/* Top vignette for badge legibility */}
+                  <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-zinc-950/70 to-transparent pointer-events-none" />
+
+                  {/* Top Badge: CO-FOUNDER */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/85 border border-amber-500/40 backdrop-blur-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-amber-300">
+                      CO-FOUNDER
+                    </span>
+                  </div>
+
+                  {/* Bottom Gradient Overlay for optimal text readability */}
+                  <div className="absolute bottom-0 inset-x-0 pt-20 pb-5 px-5 sm:px-6 bg-gradient-to-t from-zinc-950 via-zinc-950/85 via-50% to-transparent">
+                    <div className="h-0.5 w-10 bg-amber-400 mb-2 group-hover:w-16 transition-all duration-300" />
+                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white font-display leading-tight drop-shadow-sm">
+                      AROOBA
+                    </h3>
+                    <p className="text-xs sm:text-[13px] font-bold text-amber-300/95 tracking-wider uppercase mt-1">
+                      CO-FOUNDER, ARMUX
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Vision Pillars Grid */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4 text-center">
               {[
                 "Your colors.",
                 "Your logo.",
@@ -143,7 +226,7 @@ export default function AboutPage() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-amber-400/50 transition-all text-amber-300 font-black text-lg uppercase tracking-wider font-display"
+                  className="p-5 sm:p-6 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-amber-400/50 transition-all text-amber-300 font-black text-base sm:text-lg uppercase tracking-wider font-display"
                 >
                   {item}
                 </div>
