@@ -24,7 +24,7 @@ export default function TrainingSuitsPage() {
       colorName: "Midnight Black & Athletic Gold Trim",
       hex: "#111111",
       accent: "#f59e0b",
-      image: "/images/training_black_gold.jpg?v=apparel1",
+      image: "/images/training_black_gold.jpg",
       badge: "ELITE PERFORMANCE",
       description: "Performance 1/4-zip drill top with breathable mesh armpit inserts and ergonomic tapered training pants with metallic gold ARMUX emblem."
     },
@@ -34,7 +34,7 @@ export default function TrainingSuitsPage() {
       colorName: "Vivid Red & Stealth Black Colorblock",
       hex: "#dc2626",
       accent: "#111111",
-      image: "/images/training_red_black.jpg?v=apparel1",
+      image: "/images/training_red_black.jpg",
       badge: "INTENSE AGILITY",
       description: "Aggressive two-tone athletic strike kit engineered for fast-paced agility drills, scrimmage workouts, and court conditioning."
     },
@@ -44,7 +44,7 @@ export default function TrainingSuitsPage() {
       colorName: "Golden Yellow & Pitch Black",
       hex: "#eab308",
       accent: "#18181b",
-      image: "/images/training_yellow_black.jpg?v=apparel1",
+      image: "/images/training_yellow_black.jpg",
       badge: "HIGH-VIS DRILL",
       description: "Electric contrast practice suit providing maximum coach visibility during low-light sessions and intense strength training."
     },
@@ -54,7 +54,7 @@ export default function TrainingSuitsPage() {
       colorName: "Clean White & Polished Gold Lines",
       hex: "#f4f4f5",
       accent: "#d97706",
-      image: "/images/training_white_gold.jpg?v=apparel2",
+      image: "/images/training_white_gold.jpg",
       badge: "ACADEMY SPECIAL",
       description: "Lightweight moisture-wicking training suit tailored for elite youth academies, prep schools, and tournament prep sessions."
     },
@@ -64,9 +64,19 @@ export default function TrainingSuitsPage() {
       colorName: "Speed Racing Chevron Stripes",
       hex: "#27272a",
       accent: "#f59e0b",
-      image: "/images/training_striped.jpg?v=apparel1",
+      image: "/images/training_striped.jpg",
       badge: "SPEED EDITION",
       description: "Dual dynamic gold & white chest speed stripes indicating velocity and power, equipped with thumbhole cuffs and 4-way stretch flex."
+    },
+    {
+      id: "pro_sideline",
+      name: "STEALTH GOLD PRO DRILL SUIT",
+      colorName: "Pitch Black & Metallic Gold Stripes",
+      hex: "#09090b",
+      accent: "#f59e0b",
+      image: "/images/warmup_suit.jpg",
+      badge: "SIDELINE PRO",
+      description: "Full-zip performance drill tracksuit featuring dual gold arm and leg racing stripes, wind-resistant collar, and gold ARMUX wolf crest."
     }
   ];
 
@@ -109,7 +119,7 @@ export default function TrainingSuitsPage() {
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Zero Agility Drag</div>
                 </div>
                 <div className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 col-span-2 sm:col-span-1">
-                  <div className="text-amber-400 font-black text-lg">5 EDITIONS</div>
+                  <div className="text-amber-400 font-black text-lg">6 EDITIONS</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Club Colors & Stripes</div>
                 </div>
               </div>
