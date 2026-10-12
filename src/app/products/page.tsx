@@ -72,6 +72,16 @@ function ProductsContent() {
       features: ["Full-Zip Track Jacket", "Zippered Pockets & Cuffs", "Wind & Chill Resistant", "Custom Team Logo Embroidery"],
       badge: "PRE-GAME KIT",
     },
+    {
+      id: "training-bibs",
+      name: "TRAINING BIBS",
+      category: "UNIFORMS",
+      subCategory: "Practice & Scrimmage",
+      image: "/images/bibs_black_gold.jpg",
+      description: "Ultra-breathable athletic scrimmage bibs engineered for high-intensity team drills, practice games, and squad differentiation.",
+      features: ["Breathable Micro-Mesh", "Reinforced Deep Armholes", "Dual-Sided Reversible Colors", "Custom Squad Numbering"],
+      badge: "TRAINING ESSENTIAL",
+    },
   ];
 
   const apparelList = [
@@ -113,7 +123,7 @@ function ProductsContent() {
       name: "GRADUATED COMPRESSION GEAR",
       category: "APPAREL",
       subCategory: "Vascular Base Layers",
-      image: "/images/compression_black_gold.jpg?v=realistic2",
+      image: "/images/compression_black_gold.jpg",
       pageUrl: "/compression",
       description: "Vascular support compression tops and muscle recovery tights reducing muscle oscillation and accelerating lactic acid clearance.",
       features: ["Graduated 25-30 mmHg Pressure", "Flatlock Zero-Chafe Seams", "Under-Jersey Heat Regulation", "Targeted Quad & Hamstring Lock"],
