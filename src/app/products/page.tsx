@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, Check, X, Shield, Sparkles, Shirt, Flame, ChevronRight, Layers } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MotionBadge, MotionFadeUp, MotionCard, MotionButton } from "@/components/MotionWrappers";
 
 function ProductsContent() {
   const searchParams = useSearchParams();
@@ -232,26 +234,32 @@ function ProductsContent() {
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-amber-500/30 mb-6 max-w-full">
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-amber-300 uppercase truncate sm:whitespace-normal">
-              ARMUX PRODUCT CATALOG
-            </span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
-            SPORTSWEAR MADE <br />
-            <span className="gold-text">AROUND YOUR TEAM.</span>
-          </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg leading-relaxed px-2">
-            Explore ARMUX&apos;s full range of custom athletic uniforms, high-performance jerseys, sportswear apparel, and team accessories.
-          </p>
+          <MotionBadge delay={0.1} className="inline-block">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-amber-500/30 mb-6 max-w-full">
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0 animate-pulse" />
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-amber-300 uppercase truncate sm:whitespace-normal">
+                ARMUX PRODUCT CATALOG
+              </span>
+            </div>
+          </MotionBadge>
+          <MotionFadeUp delay={0.2}>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
+              SPORTSWEAR MADE <br />
+              <span className="gold-text">AROUND YOUR TEAM.</span>
+            </h1>
+          </MotionFadeUp>
+          <MotionFadeUp delay={0.35}>
+            <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg leading-relaxed px-2">
+              Explore ARMUX&apos;s full range of custom athletic uniforms, high-performance jerseys, sportswear apparel, and team accessories.
+            </p>
+          </MotionFadeUp>
         </div>
       </section>
 
       {/* SPECIAL UNIFORMS SECTION HIGHLIGHT */}
       <section className="py-20 bg-zinc-900 text-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <MotionFadeUp className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
               <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-2">
                 FEATURED COLLECTION
@@ -263,65 +271,64 @@ function ProductsContent() {
             <p className="text-zinc-400 max-w-md text-sm mt-3 md:mt-0">
               Custom-tailored uniform solutions for players of all ages, coaches, and sideline warm-up gear.
             </p>
-          </div>
+          </MotionFadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {uniformsList.map((uniform) => (
-              <div
-                key={uniform.id}
-                className="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
-              >
-                <div className="relative h-80 bg-zinc-900 overflow-hidden">
-                  <Image
-                    src={uniform.image}
-                    alt={uniform.name}
-                    fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md">
-                    {uniform.badge}
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold text-amber-400/80 tracking-widest uppercase block mb-1">
-                      {uniform.subCategory}
-                    </span>
-                    <h3 className="text-2xl font-black uppercase text-white mb-2 group-hover:text-amber-400 transition-colors font-display">
-                      {uniform.name}
-                    </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed mb-6">
-                      {uniform.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      {uniform.features.map((feat, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
-                          <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
+            {uniformsList.map((uniform, idx) => (
+              <MotionCard key={uniform.id} delay={idx * 0.08} className="h-full">
+                <div className="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col h-full group">
+                  <div className="relative h-80 bg-zinc-900 overflow-hidden">
+                    <Image
+                      src={uniform.image}
+                      alt={uniform.name}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md">
+                      {uniform.badge}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
-                    <button
-                      onClick={() => setSelectedProduct(uniform)}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded transition-colors"
-                    >
-                      VIEW DETAILS
-                    </button>
-                    <Link
-                      href={`/contact?product=${encodeURIComponent(uniform.name)}`}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded transition-all flex items-center justify-center gap-1"
-                    >
-                      <span>GET QUOTE</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
+                  <div className="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <span className="text-[10px] font-bold text-amber-400/80 tracking-widest uppercase block mb-1">
+                        {uniform.subCategory}
+                      </span>
+                      <h3 className="text-2xl font-black uppercase text-white mb-2 group-hover:text-amber-400 transition-colors font-display">
+                        {uniform.name}
+                      </h3>
+                      <p className="text-xs text-zinc-400 leading-relaxed mb-6">
+                        {uniform.description}
+                      </p>
+
+                      <div className="space-y-2 mb-6">
+                        {uniform.features.map((feat, fIdx) => (
+                          <div key={fIdx} className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
+                            <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                            <span>{feat}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
+                      <button
+                        onClick={() => setSelectedProduct(uniform)}
+                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded transition-colors active:scale-95"
+                      >
+                        VIEW DETAILS
+                      </button>
+                      <Link
+                        href={`/contact?product=${encodeURIComponent(uniform.name)}`}
+                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded transition-all flex items-center justify-center gap-1 active:scale-95"
+                      >
+                        <span>GET QUOTE</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </MotionCard>
             ))}
           </div>
         </div>
@@ -330,7 +337,7 @@ function ProductsContent() {
       {/* SPECIAL SPORTSWEAR APPAREL SECTION HIGHLIGHT */}
       <section id="apparel" className="py-20 bg-zinc-950 text-white relative border-t border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <MotionFadeUp className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
               <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-2">
                 TEAM APPAREL & OUTERWEAR
@@ -342,83 +349,82 @@ function ProductsContent() {
             <p className="text-zinc-400 max-w-md text-sm mt-3 md:mt-0">
               Athletic hoodies, training bibs, warmup tracksuits and lifestyle gear built with official ARMUX team styling.
             </p>
-          </div>
+          </MotionFadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {apparelList.map((apparel) => (
-              <div
-                key={apparel.id}
-                className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
-              >
-                <div className="relative h-80 bg-zinc-950 overflow-hidden">
-                  <Image
-                    src={apparel.image}
-                    alt={apparel.name}
-                    fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md">
-                    {apparel.badge}
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold text-amber-400/80 tracking-widest uppercase block mb-1">
-                      {apparel.subCategory}
-                    </span>
-                    {apparel.pageUrl ? (
-                      <Link href={apparel.pageUrl} className="block group/link">
-                        <h3 className="text-2xl font-black uppercase text-white mb-2 group-hover/link:text-amber-400 transition-colors font-display">
-                          {apparel.name}
-                        </h3>
-                      </Link>
-                    ) : (
-                      <h3 className="text-2xl font-black uppercase text-white mb-2 group-hover:text-amber-400 transition-colors font-display">
-                        {apparel.name}
-                      </h3>
-                    )}
-                    <p className="text-xs text-zinc-400 leading-relaxed mb-6">
-                      {apparel.description}
-                    </p>
-
-                    <div className="space-y-2 mb-6">
-                      {apparel.features.map((feat: string, idx: number) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
-                          <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
+            {apparelList.map((apparel, idx) => (
+              <MotionCard key={apparel.id} delay={idx * 0.08} className="h-full">
+                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col h-full group">
+                  <div className="relative h-80 bg-zinc-950 overflow-hidden">
+                    <Image
+                      src={apparel.image}
+                      alt={apparel.name}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md">
+                      {apparel.badge}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
-                    {apparel.pageUrl ? (
+                  <div className="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <span className="text-[10px] font-bold text-amber-400/80 tracking-widest uppercase block mb-1">
+                        {apparel.subCategory}
+                      </span>
+                      {apparel.pageUrl ? (
+                        <Link href={apparel.pageUrl} className="block group/link">
+                          <h3 className="text-2xl font-black uppercase text-white mb-2 group-hover/link:text-amber-400 transition-colors font-display">
+                            {apparel.name}
+                          </h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-2xl font-black uppercase text-white mb-2 group-hover:text-amber-400 transition-colors font-display">
+                          {apparel.name}
+                        </h3>
+                      )}
+                      <p className="text-xs text-zinc-400 leading-relaxed mb-6">
+                        {apparel.description}
+                      </p>
+
+                      <div className="space-y-2 mb-6">
+                        {apparel.features.map((feat: string, fIdx: number) => (
+                          <div key={fIdx} className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
+                            <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                            <span>{feat}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
+                      {apparel.pageUrl ? (
+                        <Link
+                          href={apparel.pageUrl}
+                          className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded transition-colors flex items-center justify-center gap-1 active:scale-95"
+                        >
+                          <span>ALL COLORS</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => setSelectedProduct(apparel)}
+                          className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded transition-colors active:scale-95"
+                        >
+                          VIEW DETAILS
+                        </button>
+                      )}
                       <Link
-                        href={apparel.pageUrl}
-                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded transition-colors flex items-center justify-center gap-1"
+                        href={`/contact?product=${encodeURIComponent(apparel.name)}`}
+                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded transition-all flex items-center justify-center gap-1 active:scale-95"
                       >
-                        <span>ALL COLORS</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <span>GET QUOTE</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
                       </Link>
-                    ) : (
-                      <button
-                        onClick={() => setSelectedProduct(apparel)}
-                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded transition-colors"
-                      >
-                        VIEW DETAILS
-                      </button>
-                    )}
-                    <Link
-                      href={`/contact?product=${encodeURIComponent(apparel.name)}`}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded transition-all flex items-center justify-center gap-1"
-                    >
-                      <span>GET QUOTE</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </MotionCard>
             ))}
           </div>
         </div>
@@ -426,7 +432,7 @@ function ProductsContent() {
 
       {/* FILTER BAR & ALL PRODUCTS CATALOG */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <MotionFadeUp className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-2">
             FULL CATALOG
           </span>
@@ -434,169 +440,185 @@ function ProductsContent() {
             EXPLORE ALL <span className="gold-text">PRODUCTS</span>
           </h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
-        </div>
+        </MotionFadeUp>
 
         {/* Category Navigation Pills */}
         <div className="flex items-center justify-center gap-3 overflow-x-auto pb-4 mb-12 scrollbar-none">
           {categories.map((cat) => (
-            <button
+            <motion.button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                 activeCategory === cat.id
-                  ? "bg-amber-400 text-black shadow-md shadow-amber-500/20"
+                  ? "bg-amber-400 text-black shadow-md shadow-amber-500/20 font-black"
                   : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
               }`}
             >
               {cat.label}
-            </button>
+            </motion.button>
           ))}
         </div>
 
         {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col group"
-            >
-              <div className="relative h-72 bg-zinc-100 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest">
-                  {product.category}
-                </div>
-              </div>
-
-              <div className="p-6 flex flex-col flex-grow justify-between">
-                <div>
-                  <h3 className="text-xl font-extrabold uppercase text-zinc-950 mb-2 group-hover:text-amber-600 transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs text-zinc-600 leading-relaxed mb-4">
-                    {product.description}
-                  </p>
-
-                  <div className="space-y-1.5 mb-6">
-                    {product.features.slice(0, 3).map((feat: string, idx: number) => (
-                      <div key={idx} className="flex items-center gap-2 text-[11px] text-zinc-700 font-medium">
-                        <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
+          {filteredProducts.map((product, idx) => (
+            <MotionCard key={product.id} delay={Math.min(idx * 0.05, 0.4)} className="h-full">
+              <div className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col h-full group">
+                <div className="relative h-72 bg-zinc-100 overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20">
+                    {product.category}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-200">
-                  <button
-                    onClick={() => setSelectedProduct(product)}
-                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-800 bg-zinc-200 hover:bg-zinc-300 rounded transition-colors"
-                  >
-                    VIEW DETAILS
-                  </button>
-                  <Link
-                    href={`/contact?product=${encodeURIComponent(product.name)}`}
-                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-amber-400 hover:bg-amber-300 rounded transition-colors"
-                  >
-                    GET A QUOTE
-                  </Link>
+                <div className="p-6 flex flex-col flex-grow justify-between">
+                  <div>
+                    <h3 className="text-xl font-extrabold uppercase text-zinc-950 mb-2 group-hover:text-amber-600 transition-colors">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+                      {product.description}
+                    </p>
+
+                    <div className="space-y-1.5 mb-6">
+                      {product.features.slice(0, 3).map((feat: string, fIdx: number) => (
+                        <div key={fIdx} className="flex items-center gap-2 text-[11px] text-zinc-700 font-medium">
+                          <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-200">
+                    <button
+                      onClick={() => setSelectedProduct(product)}
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-800 bg-zinc-200 hover:bg-zinc-300 rounded transition-colors active:scale-95"
+                    >
+                      VIEW DETAILS
+                    </button>
+                    <Link
+                      href={`/contact?product=${encodeURIComponent(product.name)}`}
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-amber-400 hover:bg-amber-300 rounded transition-colors active:scale-95"
+                    >
+                      GET A QUOTE
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
+            </MotionCard>
           ))}
         </div>
       </section>
 
       {/* PRODUCT DETAILS MODAL */}
-      {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative border border-amber-400/40">
-            <button
-              onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center hover:bg-amber-400 hover:text-black transition-colors"
+      <AnimatePresence>
+        {selectedProduct && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative border border-amber-400/40"
             >
-              <X className="w-5 h-5" />
-            </button>
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center hover:bg-amber-400 hover:text-black transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="relative h-64 md:h-auto bg-zinc-100">
-                <Image
-                  src={selectedProduct.image}
-                  alt={selectedProduct.name}
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-
-              <div className="p-8 flex flex-col justify-between">
-                <div>
-                  <span className="text-[10px] font-bold text-amber-600 tracking-widest uppercase block mb-1">
-                    {selectedProduct.category}
-                  </span>
-                  <h3 className="text-2xl font-black uppercase text-zinc-950 mb-3 font-display">
-                    {selectedProduct.name}
-                  </h3>
-                  <p className="text-xs text-zinc-600 leading-relaxed mb-6">
-                    {selectedProduct.description}
-                  </p>
-
-                  <h4 className="text-xs font-bold uppercase text-zinc-900 mb-3 tracking-wider">
-                    SPECIFICATIONS & FEATURES:
-                  </h4>
-                  <ul className="space-y-2 mb-6">
-                    {selectedProduct.features.map((feat: string, idx: number) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-zinc-700 font-medium">
-                        <Check className="w-4 h-4 text-amber-500 shrink-0" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="relative h-64 md:h-auto bg-zinc-100">
+                  <Image
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    fill
+                    className="object-cover object-center"
+                  />
                 </div>
 
-                <div className="space-y-3 pt-4 border-t border-zinc-200">
-                  <Link
-                    href={`/contact?product=${encodeURIComponent(selectedProduct.name)}`}
-                    className="w-full block py-3 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow"
-                  >
-                    REQUEST QUOTE FOR THIS ITEM
-                  </Link>
-                  <Link
-                    href="/teamwear"
-                    className="w-full block py-2.5 text-center font-bold text-xs uppercase tracking-widest text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded"
-                  >
-                    CUSTOMIZE TEAM LOGO & COLORS
-                  </Link>
+                <div className="p-8 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold text-amber-600 tracking-widest uppercase block mb-1">
+                      {selectedProduct.category}
+                    </span>
+                    <h3 className="text-2xl font-black uppercase text-zinc-950 mb-3 font-display">
+                      {selectedProduct.name}
+                    </h3>
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-6">
+                      {selectedProduct.description}
+                    </p>
+
+                    <h4 className="text-xs font-bold uppercase text-zinc-900 mb-3 tracking-wider">
+                      SPECIFICATIONS & FEATURES:
+                    </h4>
+                    <ul className="space-y-2 mb-6">
+                      {selectedProduct.features.map((feat: string, fIdx: number) => (
+                        <li key={fIdx} className="flex items-center gap-2 text-xs text-zinc-700 font-medium">
+                          <Check className="w-4 h-4 text-amber-500 shrink-0" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="space-y-3 pt-4 border-t border-zinc-200">
+                    <Link
+                      href={`/contact?product=${encodeURIComponent(selectedProduct.name)}`}
+                      className="w-full block py-3 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow"
+                    >
+                      REQUEST QUOTE FOR THIS ITEM
+                    </Link>
+                    <Link
+                      href="/teamwear"
+                      className="w-full block py-2.5 text-center font-bold text-xs uppercase tracking-widest text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded"
+                    >
+                      CUSTOMIZE TEAM LOGO & COLORS
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
 
       {/* SECTION: NEED SOMETHING CUSTOM? */}
       <section className="py-20 bg-zinc-950 text-white text-center border-t border-amber-500/20">
         <div className="max-w-4xl mx-auto px-4">
-          <Sparkles className="w-10 h-10 text-amber-400 mx-auto mb-4" />
-          <h2 className="text-3xl sm:text-4xl font-black uppercase font-display mb-4">
-            NEED SOMETHING <span className="gold-text">CUSTOM?</span>
-          </h2>
-          <p className="text-zinc-300 max-w-xl mx-auto text-sm sm:text-base mb-8">
-            Have a specific design or team requirement? Tell us what you have in mind and let&apos;s explore the possibilities.
-          </p>
-          <Link
-            href="/teamwear"
-            className="inline-flex items-center gap-2 px-8 py-4 font-black text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow-xl transition-all"
-          >
-            <span>CUSTOMIZE YOUR TEAMWEAR</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <Sparkles className="w-10 h-10 text-amber-400 mx-auto mb-4 animate-bounce" />
+          <MotionFadeUp>
+            <h2 className="text-3xl sm:text-4xl font-black uppercase font-display mb-4">
+              NEED SOMETHING <span className="gold-text">CUSTOM?</span>
+            </h2>
+          </MotionFadeUp>
+          <MotionFadeUp delay={0.1}>
+            <p className="text-zinc-300 max-w-xl mx-auto text-sm sm:text-base mb-8">
+              Have a specific design or team requirement? Tell us what you have in mind and let&apos;s explore the possibilities.
+            </p>
+          </MotionFadeUp>
+          <MotionButton delay={0.2} className="inline-block">
+            <Link
+              href="/teamwear"
+              className="inline-flex items-center gap-2 px-8 py-4 font-black text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow-xl transition-all"
+            >
+              <span>CUSTOMIZE YOUR TEAMWEAR</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </MotionButton>
         </div>
       </section>
     </div>
+
   );
 }
 

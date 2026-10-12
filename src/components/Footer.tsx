@@ -25,7 +25,7 @@ export default function Footer() {
                 href="https://www.facebook.com/share/1DefhQb8Cj/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 transition-all"
+                className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 hover:scale-110 active:scale-95 transition-all"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ export default function Footer() {
                 href="https://www.instagram.com/armuxofficial?exln=MWI1Y3IydGM4bTVwNA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 transition-all"
+                className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 hover:scale-110 active:scale-95 transition-all"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -44,6 +44,7 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
+
           </div>
 
           {/* Quick Links */}

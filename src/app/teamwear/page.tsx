@@ -4,6 +4,17 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Shield, Palette, Layers, UserCheck, Hash, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  MotionBadge,
+  MotionFadeUp,
+  MotionCard,
+  MotionNumber,
+  MotionButton,
+  MotionIconBox,
+  MotionSlideIn,
+} from "@/components/MotionWrappers";
+
 
 export default function TeamwearPage() {
   // Interactive Customizer Preview state
@@ -36,23 +47,29 @@ export default function TeamwearPage() {
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase block mb-3">
-            TEAMWEAR & CUSTOMIZATION
-          </span>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
-            YOUR VISION. <br />
-            <span className="gold-text">MADE REAL.</span>
-          </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
-            Bring your team&apos;s identity to life with custom sportswear designed around your colors, branding and requirements.
-          </p>
+          <MotionBadge delay={0.1} className="inline-block">
+            <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase block mb-3">
+              TEAMWEAR & CUSTOMIZATION
+            </span>
+          </MotionBadge>
+          <MotionFadeUp delay={0.2}>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
+              YOUR VISION. <br />
+              <span className="gold-text">MADE REAL.</span>
+            </h1>
+          </MotionFadeUp>
+          <MotionFadeUp delay={0.35}>
+            <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
+              Bring your team&apos;s identity to life with custom sportswear designed around your colors, branding and requirements.
+            </p>
+          </MotionFadeUp>
         </div>
       </section>
 
       {/* SECTION: WHAT CAN YOU CUSTOMIZE? */}
       <section className="py-24 bg-white text-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <MotionFadeUp className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
               ENDLESS OPTIONS
             </span>
@@ -60,66 +77,59 @@ export default function TeamwearPage() {
               WHAT CAN YOU <span className="gold-text">CUSTOMIZE?</span>
             </h2>
             <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
-          </div>
+          </MotionFadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
-              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">01</div>
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
-                <Shield className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">TEAM LOGO</h3>
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                Add your official team or organization logo in high-definition sublimation, woven patch, or gold foil.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
-              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">02</div>
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
-                <Palette className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">TEAM COLORS</h3>
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                Choose the exact primary, secondary and trim colors that represent your team.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
-              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">03</div>
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
-                <UserCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">PLAYER NAME</h3>
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                Personalize uniforms with individual player roster names in crisp athletic typography.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
-              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">04</div>
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
-                <Hash className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">PLAYER NUMBER</h3>
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                Add individual front and back player numbers with custom athletic font outlines.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
-              <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">05</div>
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
-                <Layers className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">CUSTOM DESIGN</h3>
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                Create a unique design around your team&apos;s vision with side geometric patterns, fades, or stripes.
-              </p>
-            </div>
+            {[
+              {
+                num: "01",
+                icon: Shield,
+                title: "TEAM LOGO",
+                desc: "Add your official team or organization logo in high-definition sublimation, woven patch, or gold foil.",
+              },
+              {
+                num: "02",
+                icon: Palette,
+                title: "TEAM COLORS",
+                desc: "Choose the exact primary, secondary and trim colors that represent your team.",
+              },
+              {
+                num: "03",
+                icon: UserCheck,
+                title: "PLAYER NAME",
+                desc: "Personalize uniforms with individual player roster names in crisp athletic typography.",
+              },
+              {
+                num: "04",
+                icon: Hash,
+                title: "PLAYER NUMBER",
+                desc: "Add individual front and back player numbers with custom athletic font outlines.",
+              },
+              {
+                num: "05",
+                icon: Layers,
+                title: "CUSTOM DESIGN",
+                desc: "Create a unique design around your team's vision with side geometric patterns, fades, or stripes.",
+              },
+            ].map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <MotionCard key={item.num} delay={idx * 0.08}>
+                  <div className="p-6 h-full rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
+                    <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">{item.num}</div>
+                    <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4">
+                      <IconComp className="w-6 h-6" />
+                    </MotionIconBox>
+                    <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">{item.title}</h3>
+                    <p className="text-xs text-zinc-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                </MotionCard>
+              );
+            })}
           </div>
         </div>
       </section>
+
 
       {/* INTERACTIVE CUSTOMIZATION STUDIO PREVIEW */}
       <section className="py-20 bg-zinc-950 text-white border-y border-amber-500/20">
@@ -314,16 +324,18 @@ export default function TeamwearPage() {
       <section className="py-24 bg-white text-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[420px] rounded-3xl overflow-hidden border border-zinc-200 shadow-2xl">
-              <Image
-                src="/images/coach_uniform.jpg"
-                alt="ARMUX Coach Uniforms"
-                fill
-                className="object-cover object-center"
-              />
-            </div>
+            <MotionSlideIn direction="left">
+              <div className="relative h-[420px] rounded-3xl overflow-hidden border border-zinc-200 shadow-2xl">
+                <Image
+                  src="/images/coach_uniform.jpg"
+                  alt="ARMUX Coach Uniforms"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            </MotionSlideIn>
 
-            <div className="space-y-6">
+            <MotionSlideIn direction="right" className="space-y-6">
               <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block">
                 STAFF TEAMWEAR
               </span>
@@ -336,35 +348,23 @@ export default function TeamwearPage() {
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
-                    PROFESSIONAL LOOK
-                  </div>
-                  <div className="text-xs text-zinc-600">Tailored polo collar & clean embroidery</div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
-                    DURABLE
-                  </div>
-                  <div className="text-xs text-zinc-600">Reinforced stitching for intense seasons</div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
-                    BREATHABLE
-                  </div>
-                  <div className="text-xs text-zinc-600">Airflow mesh inserts keep coaches cool</div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                  <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
-                    LIGHTWEIGHT
-                  </div>
-                  <div className="text-xs text-zinc-600">High comfort performance blend</div>
-                </div>
+                {[
+                  { title: "PROFESSIONAL LOOK", desc: "Tailored polo collar & clean embroidery" },
+                  { title: "DURABLE", desc: "Reinforced stitching for intense seasons" },
+                  { title: "BREATHABLE", desc: "Airflow mesh inserts keep coaches cool" },
+                  { title: "LIGHTWEIGHT", desc: "High comfort performance blend" },
+                ].map((feat, idx) => (
+                  <MotionCard key={feat.title} delay={idx * 0.08}>
+                    <div className="p-4 h-full rounded-xl bg-zinc-50 border border-zinc-200">
+                      <div className="font-extrabold text-sm uppercase text-zinc-950 mb-1">
+                        {feat.title}
+                      </div>
+                      <div className="text-xs text-zinc-600">{feat.desc}</div>
+                    </div>
+                  </MotionCard>
+                ))}
               </div>
-            </div>
+            </MotionSlideIn>
           </div>
         </div>
       </section>
@@ -372,7 +372,7 @@ export default function TeamwearPage() {
       {/* SECTION: HOW IT WORKS */}
       <section className="py-24 bg-zinc-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <MotionFadeUp className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
               THE WORKFLOW
             </span>
@@ -380,40 +380,41 @@ export default function TeamwearPage() {
               HOW IT <span className="gold-text">WORKS</span>
             </h2>
             <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
-          </div>
+          </MotionFadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
-              <div className="text-3xl font-black text-amber-400 font-display mb-4">01</div>
-              <h3 className="text-lg font-bold uppercase mb-2">SHARE YOUR IDEA</h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Send your design, reference, logo or concept to our team via inquiry or WhatsApp.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
-              <div className="text-3xl font-black text-amber-400 font-display mb-4">02</div>
-              <h3 className="text-lg font-bold uppercase mb-2">CUSTOMIZE</h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Choose colors, patterns, names, numbers and branding details for your squad.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
-              <div className="text-3xl font-black text-amber-400 font-display mb-4">03</div>
-              <h3 className="text-lg font-bold uppercase mb-2">APPROVE YOUR DESIGN</h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Review your customized digital design proof to ensure exact visual perfection.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800">
-              <div className="text-3xl font-black text-amber-400 font-display mb-4">04</div>
-              <h3 className="text-lg font-bold uppercase mb-2">WE MAKE IT REAL</h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Your custom teamwear moves from digital concept into manufactured finished products.
-              </p>
-            </div>
+            {[
+              {
+                num: "01",
+                title: "SHARE YOUR IDEA",
+                desc: "Send your design, reference, logo or concept to our team via inquiry or WhatsApp.",
+              },
+              {
+                num: "02",
+                title: "CUSTOMIZE",
+                desc: "Choose colors, patterns, names, numbers and branding details for your squad.",
+              },
+              {
+                num: "03",
+                title: "APPROVE YOUR DESIGN",
+                desc: "Review your customized digital design proof to ensure exact visual perfection.",
+              },
+              {
+                num: "04",
+                title: "WE MAKE IT REAL",
+                desc: "Your custom teamwear moves from digital concept into manufactured finished products.",
+              },
+            ].map((step, idx) => (
+              <MotionCard key={step.num} delay={idx * 0.1}>
+                <div className="p-8 h-full rounded-2xl bg-zinc-950 border border-zinc-800">
+                  <MotionNumber delay={idx * 0.1 + 0.15}>
+                    <div className="text-3xl font-black text-amber-400 font-display mb-4">{step.num}</div>
+                  </MotionNumber>
+                  <h3 className="text-lg font-bold uppercase mb-2">{step.title}</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{step.desc}</p>
+                </div>
+              </MotionCard>
+            ))}
           </div>
         </div>
       </section>
@@ -421,18 +422,23 @@ export default function TeamwearPage() {
       {/* CTA */}
       <section className="py-20 bg-amber-400 text-black text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-4">
-            NO IDEA IS TOO BIG. <br />
-            LET&apos;S DESIGN IT FOR YOUR TEAM.
-          </h2>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded shadow-xl transition-all"
-          >
-            GET A QUOTE
-          </Link>
+          <MotionFadeUp>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-4">
+              NO IDEA IS TOO BIG. <br />
+              LET&apos;S DESIGN IT FOR YOUR TEAM.
+            </h2>
+          </MotionFadeUp>
+          <MotionButton delay={0.2} className="inline-block">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded shadow-xl transition-all"
+            >
+              GET A QUOTE
+            </Link>
+          </MotionButton>
         </div>
       </section>
+
     </div>
   );
 }

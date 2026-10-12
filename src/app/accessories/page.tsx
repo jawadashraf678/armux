@@ -4,6 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Palette, Check, ShieldCheck, Flame, Layers, Sparkles } from "lucide-react";
+import { 
+  MotionBadge, 
+  MotionFadeUp, 
+  MotionCard, 
+  MotionButton, 
+  MotionIconBox 
+} from "@/components/MotionWrappers";
 
 export default function AccessoriesPage() {
   const [globalColor, setGlobalColor] = useState("ALL");
@@ -297,15 +304,19 @@ export default function AccessoriesPage() {
       {/* HERO */}
       <section className="bg-zinc-950 text-white pt-36 pb-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase block mb-3">
+          <MotionBadge className="inline-block text-[10px] sm:text-xs font-bold text-amber-400 tracking-[0.15em] sm:tracking-[0.25em] uppercase mb-3">
             ARMUX ATHLETIC ACCESSORIES
-          </span>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
-            COMPLETE <span className="gold-text">THE KIT.</span>
-          </h1>
-          <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
-            Featuring the signature ARMUX Golden Wolf emblem across 4 core team colorways.
-          </p>
+          </MotionBadge>
+          <MotionFadeUp>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white mb-6 break-words px-2">
+              COMPLETE <span className="gold-text">THE KIT.</span>
+            </h1>
+          </MotionFadeUp>
+          <MotionFadeUp delay={0.15}>
+            <p className="max-w-xl mx-auto text-zinc-300 text-sm sm:text-base md:text-lg px-2">
+              Featuring the signature ARMUX Golden Wolf emblem across 4 core team colorways.
+            </p>
+          </MotionFadeUp>
         </div>
       </section>
 
@@ -313,7 +324,9 @@ export default function AccessoriesPage() {
       <section className="py-2.5 sm:py-3.5 bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800 text-white relative md:sticky md:top-20 z-30 shadow-md transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4">
           <div className="flex items-center gap-2 shrink-0">
-            <Palette className="w-4 h-4 text-amber-400 shrink-0" />
+            <MotionIconBox className="w-6 h-6 flex items-center justify-center">
+              <Palette className="w-4 h-4 text-amber-400 shrink-0" />
+            </MotionIconBox>
             <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-300">
               SWITCH ALL TEAM COLORS:
             </span>
@@ -341,12 +354,14 @@ export default function AccessoriesPage() {
       <section className="py-20 bg-white text-zinc-900 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
+            <MotionBadge className="inline-block text-xs font-bold text-amber-600 tracking-[0.25em] uppercase mb-3">
               COLOR-SWATCH ACCESSORIES
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950">
-              PERFORMANCE <span className="gold-text">ACCESSORIES</span>
-            </h2>
+            </MotionBadge>
+            <MotionFadeUp>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950">
+                PERFORMANCE <span className="gold-text">ACCESSORIES</span>
+              </h2>
+            </MotionFadeUp>
             <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
             <p className="text-sm text-zinc-600">
               Click any color swatch below a product to instantly preview that colorway.
@@ -354,14 +369,15 @@ export default function AccessoriesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {accessories.map((item) => {
+            {accessories.map((item, idx) => {
               const activeColorKey = cardColors[item.name] || "BLACK_GOLD";
               const currentImage = item.images[activeColorKey as keyof typeof item.images] || item.images.BLACK_GOLD;
               const activeColorObj = colorOptions.find((c) => c.id === activeColorKey);
 
               return (
-                <div
+                <MotionCard
                   key={item.name}
+                  delay={idx * 0.05}
                   className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col group"
                 >
                   <div className="relative h-80 bg-zinc-100 overflow-hidden p-3 flex items-center justify-center">
@@ -373,9 +389,9 @@ export default function AccessoriesPage() {
                       height={500}
                       className="object-cover w-full h-full rounded-xl group-hover:scale-105 transition-all duration-500 shadow-sm"
                     />
-                    <div className="absolute top-5 left-5 bg-zinc-950/90 backdrop-blur-md px-3 py-1 rounded-md text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-400/30 shadow-md">
+                    <MotionBadge className="absolute top-5 left-5 bg-zinc-950/90 backdrop-blur-md px-3 py-1 rounded-md text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-400/30 shadow-md">
                       {activeColorObj?.label.toUpperCase()}
-                    </div>
+                    </MotionBadge>
                   </div>
 
                   <div className="p-6 flex flex-col flex-grow justify-between">
@@ -419,14 +435,16 @@ export default function AccessoriesPage() {
                       </div>
                     </div>
 
-                    <Link
-                      href={`/contact?product=${encodeURIComponent(item.name)}&color=${encodeURIComponent(activeColorObj?.label || "")}`}
-                      className="w-full py-3.5 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-zinc-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 block"
-                    >
-                      GET A QUOTE ({activeColorObj?.label})
-                    </Link>
+                    <MotionButton>
+                      <Link
+                        href={`/contact?product=${encodeURIComponent(item.name)}&color=${encodeURIComponent(activeColorObj?.label || "")}`}
+                        className="w-full py-3.5 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-zinc-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 block"
+                      >
+                        GET A QUOTE ({activeColorObj?.label})
+                      </Link>
+                    </MotionButton>
                   </div>
-                </div>
+                </MotionCard>
               );
             })}
           </div>
@@ -437,15 +455,17 @@ export default function AccessoriesPage() {
       <section className="py-24 bg-zinc-950 text-white relative overflow-hidden border-t border-amber-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-amber-500/30 mb-4">
+            <MotionBadge className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-amber-500/30 mb-4">
               <Sparkles className="w-4 h-4 text-amber-400" />
               <span className="text-xs font-bold text-amber-300 uppercase tracking-[0.2em]">
                 SQUAD & PERFORMANCE SPECIFICATIONS
               </span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight text-white mb-4">
-              ATHLETIC SUPPORT & <span className="gold-text">SOCKS LINEUP</span>
-            </h2>
+            </MotionBadge>
+            <MotionFadeUp>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight text-white mb-4">
+                ATHLETIC SUPPORT & <span className="gold-text">SOCKS LINEUP</span>
+              </h2>
+            </MotionFadeUp>
             <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
               Custom team order options for compression supports, bands, and specialized athletic socks with interactive color selection.
@@ -459,8 +479,9 @@ export default function AccessoriesPage() {
               const activeColorObj = colorOptions.find((c) => c.id === activeColorKey);
 
               return (
-                <div
+                <MotionCard
                   key={idx}
+                  delay={idx * 0.04}
                   className="rounded-3xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 transition-all duration-300 p-5 flex flex-col justify-between shadow-2xl group hover:-translate-y-1"
                 >
                   <div>
@@ -480,12 +501,12 @@ export default function AccessoriesPage() {
                     </div>
 
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                      <MotionBadge className="text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                         {card.badge}
-                      </span>
-                      <div className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                      </MotionBadge>
+                      <MotionIconBox className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
                         <ShieldCheck className="w-3.5 h-3.5" />
-                      </div>
+                      </MotionIconBox>
                     </div>
 
                     <h3 className="text-sm font-black uppercase text-white font-display mb-2 group-hover:text-amber-400 transition-colors leading-snug">
@@ -536,13 +557,15 @@ export default function AccessoriesPage() {
                     </div>
                   </div>
 
-                  <Link
-                    href={`/contact?product=${encodeURIComponent(card.title)}&color=${encodeURIComponent(activeColorObj?.label || "")}`}
-                    className="w-full py-2.5 px-3 text-center font-extrabold text-[10px] uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded-xl shadow-md transition-colors block"
-                  >
-                    GET A QUOTE ({activeColorObj?.label})
-                  </Link>
-                </div>
+                  <MotionButton>
+                    <Link
+                      href={`/contact?product=${encodeURIComponent(card.title)}&color=${encodeURIComponent(activeColorObj?.label || "")}`}
+                      className="w-full py-2.5 px-3 text-center font-extrabold text-[10px] uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded-xl shadow-md transition-colors block"
+                    >
+                      GET A QUOTE ({activeColorObj?.label})
+                    </Link>
+                  </MotionButton>
+                </MotionCard>
               );
             })}
           </div>
@@ -552,19 +575,23 @@ export default function AccessoriesPage() {
       {/* FOOTER CTA */}
       <section className="py-20 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-black text-center">
         <div className="max-w-4xl mx-auto px-4 space-y-4">
-          <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-black tracking-tight">
-            NEED CUSTOM TEAM ACCESSORIES & SOCKS?
-          </h2>
+          <MotionFadeUp>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-black tracking-tight">
+              NEED CUSTOM TEAM ACCESSORIES & SOCKS?
+            </h2>
+          </MotionFadeUp>
           <p className="text-black/80 font-medium text-base sm:text-lg max-w-xl mx-auto">
             Contact our sales team on WhatsApp to request custom team logo embroideries and bulk roster pricing.
           </p>
           <div className="pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-black hover:bg-zinc-900 rounded-xl shadow-2xl transition-all"
-            >
-              REQUEST ACCESSORIES QUOTE
-            </Link>
+            <MotionButton>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-black hover:bg-zinc-900 rounded-xl shadow-2xl transition-all"
+              >
+                REQUEST ACCESSORIES QUOTE
+              </Link>
+            </MotionButton>
           </div>
         </div>
       </section>

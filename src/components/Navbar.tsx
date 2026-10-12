@@ -99,7 +99,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
-          <Link href="/" className="group flex items-center">
+          <Link href="/" className="group flex items-center transform hover:scale-105 transition-transform duration-200">
             <ArmuxLogo size="md" showTagline={false} />
           </Link>
 
@@ -128,7 +128,7 @@ export default function Navbar() {
 
                     {/* Products Dropdown Menu */}
                     <div className="absolute top-full left-0 w-80 pt-2 hidden group-hover:block transition-all duration-200 z-[100]">
-                      <div className="bg-[#09090b] border-2 border-amber-500/40 rounded-2xl p-3 shadow-[0_25px_60px_rgba(0,0,0,0.95)] space-y-1.5">
+                      <div className="bg-[#09090b] border-2 border-amber-500/40 rounded-2xl p-3 shadow-[0_25px_60px_rgba(0,0,0,0.95)] space-y-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
                         <div className="px-3 py-1.5 border-b border-zinc-800 mb-1 flex items-center justify-between">
                           <span className="text-[10px] font-black text-amber-400 tracking-widest uppercase">
                             PRODUCT CATEGORIES
@@ -142,9 +142,9 @@ export default function Navbar() {
                               key={item.name}
                               href={item.href}
                               onClick={() => setSelectedCategory(item.name)}
-                              className={`flex flex-col px-3 py-2.5 rounded-xl transition-all duration-200 ${
+                              className={`flex flex-col px-3 py-2.5 rounded-xl transition-all duration-200 hover:translate-x-1 ${
                                 isActive
-                                  ? "bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/60 shadow-[0_0_15px_rgba(251,191,36,0.18)]"
+                                    ? "bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/60 shadow-[0_0_15px_rgba(251,191,36,0.18)]"
                                   : "bg-[#121215] hover:bg-[#18181d] border border-zinc-800/80 hover:border-zinc-700"
                               }`}
                             >
@@ -206,7 +206,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/contact"
-              className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-xs uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded hover:brightness-110 transition-all duration-300 shadow-md shadow-amber-500/20 group"
+              className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-xs uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded hover:brightness-110 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md shadow-amber-500/20 group animate-pulse-glow"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 GET A QUOTE
@@ -214,6 +214,7 @@ export default function Navbar() {
               </span>
             </Link>
           </div>
+
 
           {/* Mobile Hamburger Toggle */}
           <div className="xl:hidden flex items-center space-x-3">

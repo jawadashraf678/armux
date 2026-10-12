@@ -15,6 +15,14 @@ import {
   Zap,
   Activity
 } from "lucide-react";
+import { 
+  MotionBadge, 
+  MotionFadeUp, 
+  MotionSlideIn, 
+  MotionCard, 
+  MotionButton, 
+  MotionIconBox 
+} from "@/components/MotionWrappers";
 
 export default function WarmUpSuitsPage() {
   const colorways = [
@@ -70,59 +78,67 @@ export default function WarmUpSuitsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 max-w-full">
+            <MotionSlideIn direction="left" className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+              <MotionBadge className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 max-w-full">
                 <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
                 <span className="text-[10px] sm:text-xs font-black tracking-[0.15em] sm:tracking-[0.25em] text-amber-300 uppercase">
                   ARMUX PRO TRACKSUITS & TRAVEL KITS
                 </span>
-              </div>
+              </MotionBadge>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white leading-tight break-words">
-                PERFORMANCE <br />
-                <span className="gold-text">WARM UP SUITS</span>
-              </h1>
+              <MotionFadeUp>
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display tracking-tight text-white leading-tight break-words">
+                  PERFORMANCE <br />
+                  <span className="gold-text">WARM UP SUITS</span>
+                </h1>
+              </MotionFadeUp>
 
-              <p className="text-zinc-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Engineered for pre-game team arrivals, sideline warming, and cross-country squad travel. 
-                Full 2-piece kit consisting of premium aerodynamic track jacket and custom tapered track pants with official ARMUX golden wolf emblem.
-              </p>
+              <MotionFadeUp delay={0.15}>
+                <p className="text-zinc-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                  Engineered for pre-game team arrivals, sideline warming, and cross-country squad travel. 
+                  Full 2-piece kit consisting of premium aerodynamic track jacket and custom tapered track pants with official ARMUX golden wolf emblem.
+                </p>
+              </MotionFadeUp>
 
               {/* Quick Specs Pills */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 w-full max-w-lg">
-                <div className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
+                <MotionCard delay={0.1} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
                   <div className="text-amber-400 font-black text-lg">2-PIECE KIT</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Jacket & Tapered Pants</div>
-                </div>
-                <div className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
+                </MotionCard>
+                <MotionCard delay={0.15} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
                   <div className="text-amber-400 font-black text-lg">WIND RESISTANT</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Micro-Poly Shield</div>
-                </div>
-                <div className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 col-span-2 sm:col-span-1">
+                </MotionCard>
+                <MotionCard delay={0.2} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 col-span-2 sm:col-span-1">
                   <div className="text-amber-400 font-black text-lg">ZIPPERED CUFFS</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Over-Shoe Fast Entry</div>
-                </div>
+                </MotionCard>
               </div>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-4 w-full">
-                <Link
-                  href={`/contact?product=${encodeURIComponent("ARMUX Warm-Up Suit - " + activeColorway.name)}`}
-                  className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
-                >
-                  <span>ORDER SQUAD SUITS</span>
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-                <a
-                  href="#colorways"
-                  className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all"
-                >
-                  VIEW ALL SUIT COLORS
-                </a>
+                <MotionButton>
+                  <Link
+                    href={`/contact?product=${encodeURIComponent("ARMUX Warm-Up Suit - " + activeColorway.name)}`}
+                    className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+                  >
+                    <span>ORDER SQUAD SUITS</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </MotionButton>
+                <MotionButton>
+                  <a
+                    href="#colorways"
+                    className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all"
+                  >
+                    VIEW ALL SUIT COLORS
+                  </a>
+                </MotionButton>
               </div>
-            </div>
+            </MotionSlideIn>
 
             {/* Right Interactive Preview */}
-            <div className="lg:col-span-5">
+            <MotionSlideIn direction="right" className="lg:col-span-5">
               <div className="relative rounded-3xl bg-zinc-900 border border-amber-500/30 overflow-hidden shadow-2xl p-6 group">
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black">
                   <Image
@@ -133,9 +149,9 @@ export default function WarmUpSuitsPage() {
                     unoptimized
                     key={activeColorway.id}
                   />
-                  <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest shadow">
+                  <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest shadow">
                     {activeColorway.badge}
-                  </div>
+                  </MotionBadge>
                 </div>
 
                 <div className="mt-6 space-y-3">
@@ -183,7 +199,7 @@ export default function WarmUpSuitsPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </MotionSlideIn>
 
           </div>
         </div>
@@ -192,12 +208,14 @@ export default function WarmUpSuitsPage() {
       {/* ALL SUIT COLORWAYS GRID */}
       <section id="colorways" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
+          <MotionBadge className="inline-block text-xs font-bold text-amber-400 tracking-[0.25em] uppercase block mb-3">
             TEAM COLORWAY OPTIONS
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-white">
-            FOUR SIGNATURE <span className="gold-text">TRACKSUIT EDITIONS</span>
-          </h2>
+          </MotionBadge>
+          <MotionFadeUp>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-white">
+              FOUR SIGNATURE <span className="gold-text">TRACKSUIT EDITIONS</span>
+            </h2>
+          </MotionFadeUp>
           <div className="w-20 h-1 bg-amber-500 mx-auto my-4 rounded-full" />
           <p className="text-zinc-400 text-sm sm:text-base">
             Every suit is fully customizable with your team&apos;s crest, player names, and numbers on both the jacket and the pants.
@@ -205,9 +223,10 @@ export default function WarmUpSuitsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {colorways.map((item) => (
-            <div
+          {colorways.map((item, idx) => (
+            <MotionCard
               key={item.id}
+              delay={idx * 0.08}
               className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
             >
               <div className="relative aspect-square bg-black overflow-hidden">
@@ -218,9 +237,9 @@ export default function WarmUpSuitsPage() {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   unoptimized
                 />
-                <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow">
+                <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow">
                   {item.badge}
-                </div>
+                </MotionBadge>
               </div>
 
               <div className="p-6 flex flex-col flex-grow justify-between">
@@ -261,16 +280,18 @@ export default function WarmUpSuitsPage() {
                   >
                     PREVIEW
                   </button>
-                  <Link
-                    href={`/contact?product=${encodeURIComponent("ARMUX Warm-Up Suit - " + item.name)}`}
-                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all flex items-center justify-center gap-1"
-                  >
-                    <span>QUOTE</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <MotionButton>
+                    <Link
+                      href={`/contact?product=${encodeURIComponent("ARMUX Warm-Up Suit - " + item.name)}`}
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all flex items-center justify-center gap-1"
+                    >
+                      <span>QUOTE</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </MotionButton>
                 </div>
               </div>
-            </div>
+            </MotionCard>
           ))}
         </div>
       </section>
@@ -279,35 +300,35 @@ export default function WarmUpSuitsPage() {
       <section className="py-20 bg-zinc-900 border-t border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <MotionCard delay={0.1} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
+              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
                 <Wind className="w-6 h-6" />
-              </div>
+              </MotionIconBox>
               <h3 className="text-xl font-black uppercase text-white mb-2 font-display">CHILL & DRAFT SHIELD</h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Tightly woven micro-poly shell deflects drafts, cool arena air conditioning, and rain during pre-game warmups and team transit.
               </p>
-            </div>
+            </MotionCard>
 
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <MotionCard delay={0.2} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
+              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
                 <Pocket className="w-6 h-6" />
-              </div>
+              </MotionIconBox>
               <h3 className="text-xl font-black uppercase text-white mb-2 font-display">ZIPPERED LOCK DOWN</h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Both jacket pockets and pant pockets are equipped with reverse-coil auto-locking zippers to keep athlete essentials secure.
               </p>
-            </div>
+            </MotionCard>
 
-            <div className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <MotionCard delay={0.3} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
+              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
                 <Zap className="w-6 h-6" />
-              </div>
+              </MotionIconBox>
               <h3 className="text-xl font-black uppercase text-white mb-2 font-display">SWIFT BENCH TRANSITIONS</h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Concealed 9-inch ankle zippers allow players called off the bench to slip their pants off over high-top basketball sneakers in 3 seconds.
               </p>
-            </div>
+            </MotionCard>
           </div>
         </div>
       </section>
@@ -315,19 +336,23 @@ export default function WarmUpSuitsPage() {
       {/* CALL TO ACTION */}
       <section className="py-24 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-black text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-4">
-            EQUIP YOUR BENCH WITH OFFICIAL ARMUX TRACKSUITS.
-          </h2>
+          <MotionFadeUp>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display tracking-tight mb-4">
+              EQUIP YOUR BENCH WITH OFFICIAL ARMUX TRACKSUITS.
+            </h2>
+          </MotionFadeUp>
           <p className="text-black/80 font-medium max-w-xl mx-auto mb-8 text-sm sm:text-base">
             Custom made for your complete roster including coaching staff and athletic trainers. Fast delivery worldwide.
           </p>
-          <Link
-            href="/contact?product=ARMUX Warm Up Tracksuit Team Squad"
-            className="inline-flex items-center gap-2 px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded-xl shadow-2xl transition-all"
-          >
-            <span>GET SQUAD QUOTE</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <MotionButton>
+            <Link
+              href="/contact?product=ARMUX Warm Up Tracksuit Team Squad"
+              className="inline-flex items-center gap-2 px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded-xl shadow-2xl transition-all"
+            >
+              <span>GET SQUAD QUOTE</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </MotionButton>
         </div>
       </section>
     </div>

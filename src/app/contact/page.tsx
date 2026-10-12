@@ -25,6 +25,14 @@ import {
   HelpCircle,
   FileCheck
 } from "lucide-react";
+import { 
+  MotionBadge, 
+  MotionFadeUp, 
+  MotionCard, 
+  MotionNumber, 
+  MotionButton, 
+  MotionIconBox 
+} from "@/components/MotionWrappers";
 
 // FAQ Accordion Component
 function FaqAccordion() {
@@ -286,20 +294,24 @@ function ContactFormContent() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-amber-500/40 backdrop-blur-md mb-6 max-w-full">
+          <MotionBadge className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-amber-500/40 backdrop-blur-md mb-6 max-w-full">
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
             <span className="text-[10px] sm:text-xs font-black tracking-[0.12em] sm:tracking-[0.25em] text-amber-300 uppercase truncate sm:whitespace-normal">
               ARMUX CUSTOM SPORTWEAR CONSULTATION
             </span>
-          </div>
+          </MotionBadge>
 
-          <h1 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase font-display tracking-tight text-white mb-6 leading-tight break-words px-2">
-            LET&apos;S TALK <span className="gold-text">TEAMWEAR.</span>
-          </h1>
+          <MotionFadeUp>
+            <h1 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase font-display tracking-tight text-white mb-6 leading-tight break-words px-2">
+              LET&apos;S TALK <span className="gold-text">TEAMWEAR.</span>
+            </h1>
+          </MotionFadeUp>
 
-          <p className="max-w-2xl mx-auto text-zinc-300 text-base sm:text-xl font-normal leading-relaxed">
-            Have a custom basketball or sportswear project in mind? Tell ARMUX what your team needs, and our specialists will build a tailored roster package.
-          </p>
+          <MotionFadeUp delay={0.15}>
+            <p className="max-w-2xl mx-auto text-zinc-300 text-base sm:text-xl font-normal leading-relaxed">
+              Have a custom basketball or sportswear project in mind? Tell ARMUX what your team needs, and our specialists will build a tailored roster package.
+            </p>
+          </MotionFadeUp>
         </div>
       </section>
 
@@ -309,7 +321,7 @@ function ContactFormContent() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Direct Contact Info */}
             <div className="lg:col-span-5 space-y-8">
-              <div>
+              <MotionFadeUp>
                 <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-2">
                   DIRECT CONTACT
                 </span>
@@ -319,16 +331,16 @@ function ContactFormContent() {
                 <p className="text-sm text-zinc-600 leading-relaxed mb-6">
                   Our sportswear consultants are ready to discuss your order, vector logo files, roster size distributions, and custom colorways.
                 </p>
-              </div>
+              </MotionFadeUp>
 
               <div className="space-y-5">
                 {/* WhatsApp Card */}
-                <div className="p-7 rounded-3xl bg-white border border-emerald-500/30 shadow-lg relative overflow-hidden group hover:border-emerald-500 transition-all">
+                <MotionCard className="p-7 rounded-3xl bg-white border border-emerald-500/30 shadow-lg relative overflow-hidden group hover:border-emerald-500 transition-all">
                   <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold border border-emerald-200">
+                      <MotionIconBox className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold border border-emerald-200">
                         <Phone className="w-6 h-6" />
-                      </div>
+                      </MotionIconBox>
                       <div>
                         <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                           WHATSAPP / PHONE
@@ -340,23 +352,25 @@ function ContactFormContent() {
                     </div>
                   </div>
 
-                  <a
-                    href="https://wa.me/923201713838"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-4 px-5 font-black text-xs uppercase tracking-widest text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-colors shadow-md"
-                  >
-                    <MessageSquare className="w-4 h-4 fill-current" />
-                    <span>START WHATSAPP CHAT</span>
-                  </a>
-                </div>
+                  <MotionButton>
+                    <a
+                      href="https://wa.me/923201713838"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 py-4 px-5 font-black text-xs uppercase tracking-widest text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-colors shadow-md"
+                    >
+                      <MessageSquare className="w-4 h-4 fill-current" />
+                      <span>START WHATSAPP CHAT</span>
+                    </a>
+                  </MotionButton>
+                </MotionCard>
 
                 {/* Email & Web Cards */}
-                <div className="p-7 rounded-3xl bg-white border border-zinc-200 space-y-5 shadow-md">
+                <MotionCard delay={0.1} className="p-7 rounded-3xl bg-white border border-zinc-200 space-y-5 shadow-md">
                   <div className="flex items-center gap-4 border-b border-zinc-100 pb-5">
-                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
+                    <MotionIconBox className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
                       <Mail className="w-5 h-5" />
-                    </div>
+                    </MotionIconBox>
                     <div>
                       <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                         GENERAL INQUIRIES
@@ -368,9 +382,9 @@ function ContactFormContent() {
                   </div>
 
                   <div className="flex items-center gap-4 border-b border-zinc-100 pb-5">
-                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
+                    <MotionIconBox className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
                       <Mail className="w-5 h-5" />
-                    </div>
+                    </MotionIconBox>
                     <div>
                       <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                         SALES DEPARTMENT
@@ -382,9 +396,9 @@ function ContactFormContent() {
                   </div>
 
                   <div className="flex items-center gap-4 pt-1">
-                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
+                    <MotionIconBox className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
                       <Globe className="w-5 h-5" />
-                    </div>
+                    </MotionIconBox>
                     <div>
                       <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                         OFFICIAL WEBSITE
@@ -430,7 +444,7 @@ function ContactFormContent() {
                       </a>
                     </div>
                   </div>
-                </div>
+                </MotionCard>
               </div>
             </div>
 
@@ -654,23 +668,25 @@ function ContactFormContent() {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 px-6 font-black text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 disabled:opacity-60 disabled:cursor-not-allowed rounded-xl transition-all shadow-lg hover:shadow-amber-400/30 flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                          <span>SENDING INQUIRY...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>SUBMIT CUSTOM ORDER INQUIRY</span>
-                        </>
-                      )}
-                    </button>
+                    <MotionButton>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 px-6 font-black text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 disabled:opacity-60 disabled:cursor-not-allowed rounded-xl transition-all shadow-lg hover:shadow-amber-400/30 flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                            <span>SENDING INQUIRY...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4" />
+                            <span>SUBMIT CUSTOM ORDER INQUIRY</span>
+                          </>
+                        )}
+                      </button>
+                    </MotionButton>
                   </form>
                 )}
               </div>
@@ -683,21 +699,24 @@ function ContactFormContent() {
       <section className="py-24 bg-white text-zinc-900 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
+            <MotionBadge className="inline-block text-xs font-bold text-amber-600 tracking-[0.25em] uppercase mb-3">
               PREMIUM ATHLETIC GEAR
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
-              WHAT CAN WE <span className="gold-text">CUSTOMIZE?</span>
-            </h2>
+            </MotionBadge>
+            <MotionFadeUp>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
+                WHAT CAN WE <span className="gold-text">CUSTOMIZE?</span>
+              </h2>
+            </MotionFadeUp>
             <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
               Every detail engineered specifically for high-intensity court performance and professional squad presentation.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {customizationCards.map((card) => (
-              <div 
+            {customizationCards.map((card, idx) => (
+              <MotionCard 
                 key={card.id}
+                delay={idx * 0.1}
                 className="rounded-3xl bg-zinc-50 border border-zinc-200 overflow-hidden group hover:border-amber-500 hover:shadow-2xl transition-all duration-300 flex flex-col shadow-md"
               >
                 <div className="relative h-64 overflow-hidden">
@@ -708,9 +727,9 @@ function ContactFormContent() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
-                  <span className="absolute top-4 left-4 bg-amber-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-md">
+                  <MotionBadge className="absolute top-4 left-4 bg-amber-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-md">
                     {card.badge}
-                  </span>
+                  </MotionBadge>
                 </div>
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-3 bg-white">
                   <div>
@@ -732,7 +751,7 @@ function ContactFormContent() {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </div>
+              </MotionCard>
             ))}
           </div>
         </div>
@@ -742,12 +761,14 @@ function ContactFormContent() {
       <section className="py-24 bg-zinc-50 text-zinc-900 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
+            <MotionBadge className="inline-block text-xs font-bold text-amber-600 tracking-[0.25em] uppercase mb-3">
               SIMPLE 4-STEP WORKFLOW
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
-              OUR <span className="gold-text">ORDER PROCESS</span>
-            </h2>
+            </MotionBadge>
+            <MotionFadeUp>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
+                OUR <span className="gold-text">ORDER PROCESS</span>
+              </h2>
+            </MotionFadeUp>
             <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
               From initial concept drawing to court-ready uniform delivery, we ensure seamless execution.
             </p>
@@ -757,17 +778,18 @@ function ContactFormContent() {
             {processSteps.map((step, idx) => {
               const Icon = step.icon;
               return (
-                <div 
+                <MotionCard 
                   key={idx} 
+                  delay={idx * 0.1}
                   className="p-8 rounded-3xl bg-white border border-zinc-200 hover:border-amber-400 transition-all duration-300 relative group shadow-md"
                 >
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl font-black text-amber-600 font-display">
+                    <MotionNumber delay={idx * 0.1} className="text-3xl font-black text-amber-600 font-display">
                       {step.step}
-                    </span>
-                    <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center">
+                    </MotionNumber>
+                    <MotionIconBox className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center">
                       <Icon className="w-6 h-6" />
-                    </div>
+                    </MotionIconBox>
                   </div>
                   <h3 className="text-lg font-black text-zinc-950 uppercase font-display mb-2">
                     {step.title}
@@ -775,7 +797,7 @@ function ContactFormContent() {
                   <p className="text-xs text-zinc-600 leading-relaxed">
                     {step.desc}
                   </p>
-                </div>
+                </MotionCard>
               );
             })}
           </div>
@@ -786,12 +808,14 @@ function ContactFormContent() {
       <section className="py-24 bg-white text-zinc-900 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-amber-600 tracking-[0.25em] uppercase block mb-3">
+            <MotionBadge className="inline-block text-xs font-bold text-amber-600 tracking-[0.25em] uppercase mb-3">
               THE ARMUX ADVANTAGE
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
-              WHY ATHLETES <span className="gold-text">CHOOSE US</span>
-            </h2>
+            </MotionBadge>
+            <MotionFadeUp>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-zinc-950 mb-4">
+                WHY ATHLETES <span className="gold-text">CHOOSE US</span>
+              </h2>
+            </MotionFadeUp>
             <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
               Crafted with high-durability fabrics designed for professional leagues, school teams, and elite tournaments.
             </p>
@@ -801,20 +825,21 @@ function ContactFormContent() {
             {whyChooseUs.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div 
+                <MotionCard 
                   key={idx}
+                  delay={idx * 0.1}
                   className="p-8 rounded-3xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all duration-300 text-center flex flex-col items-center shadow-md"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-amber-100 border border-amber-300 text-amber-700 flex items-center justify-center mb-6">
+                  <MotionIconBox className="w-14 h-14 rounded-2xl bg-amber-100 border border-amber-300 text-amber-700 flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7" />
-                  </div>
+                  </MotionIconBox>
                   <h3 className="text-base font-black text-zinc-950 uppercase font-display mb-3">
                     {item.title}
                   </h3>
                   <p className="text-xs text-zinc-600 leading-relaxed">
                     {item.desc}
                   </p>
-                </div>
+                </MotionCard>
               );
             })}
           </div>
@@ -825,13 +850,15 @@ function ContactFormContent() {
       <section className="py-16 sm:py-24 bg-zinc-50 text-zinc-900 border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 px-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[10px] sm:text-xs font-black tracking-widest text-amber-600 uppercase mb-3">
+            <MotionBadge className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[10px] sm:text-xs font-black tracking-widest text-amber-600 uppercase mb-3">
               <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
               GOT QUESTIONS?
-            </span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase font-display text-zinc-950 mb-3 tracking-tight leading-tight break-words">
-              FREQUENTLY ASKED <span className="gold-text">QUESTIONS</span>
-            </h2>
+            </MotionBadge>
+            <MotionFadeUp>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase font-display text-zinc-950 mb-3 tracking-tight leading-tight break-words">
+                FREQUENTLY ASKED <span className="gold-text">QUESTIONS</span>
+              </h2>
+            </MotionFadeUp>
             <p className="text-zinc-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mx-auto">
               Everything you need to know about custom ordering, vector sizing, proof approval, and bulk deliveries.
             </p>
@@ -844,29 +871,35 @@ function ContactFormContent() {
       {/* SECTION 5: FINAL CTA BANNER */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-          <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-black tracking-tight">
-            READY TO OUTFIT YOUR TEAM IN ARMUX?
-          </h2>
+          <MotionFadeUp>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase font-display text-black tracking-tight">
+              READY TO OUTFIT YOUR TEAM IN ARMUX?
+            </h2>
+          </MotionFadeUp>
           <p className="text-black/80 max-w-2xl mx-auto font-medium text-base sm:text-lg">
             Speak directly with our customization team right now on WhatsApp or submit your squad parameters online.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a
-              href="https://wa.me/923201713838"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-black text-white font-black text-xs uppercase tracking-widest rounded-xl hover:bg-zinc-900 transition-colors inline-flex items-center gap-2 shadow-2xl"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
-              <span>CHAT ON WHATSAPP (+92 320 1713838)</span>
-            </a>
-            <a
-              href="mailto:sales@armuxofficial.com"
-              className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-md text-black font-black text-xs uppercase tracking-widest rounded-xl transition-colors inline-flex items-center gap-2"
-            >
-              <Mail className="w-4 h-4 text-black" />
-              <span>EMAIL SALES TEAM</span>
-            </a>
+            <MotionButton>
+              <a
+                href="https://wa.me/923201713838"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-black text-white font-black text-xs uppercase tracking-widest rounded-xl hover:bg-zinc-900 transition-colors inline-flex items-center gap-2 shadow-2xl"
+              >
+                <MessageSquare className="w-4 h-4 text-emerald-400" />
+                <span>CHAT ON WHATSAPP (+92 320 1713838)</span>
+              </a>
+            </MotionButton>
+            <MotionButton>
+              <a
+                href="mailto:sales@armuxofficial.com"
+                className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-md text-black font-black text-xs uppercase tracking-widest rounded-xl transition-colors inline-flex items-center gap-2"
+              >
+                <Mail className="w-4 h-4 text-black" />
+                <span>EMAIL SALES TEAM</span>
+              </a>
+            </MotionButton>
           </div>
         </div>
       </section>

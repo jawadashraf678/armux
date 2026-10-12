@@ -76,3 +76,48 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #D4AF37;
 }
+
+/* Custom Micro-Animations */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes soft-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.55);
+  }
+}
+
+.animate-float {
+  animation: subtle-float 3.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: soft-pulse-glow 2.5s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #D4AF37 0%, #FFF4CC 50%, #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 4s linear infinite;
+}
+
