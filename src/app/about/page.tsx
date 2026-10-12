@@ -140,14 +140,14 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto mb-10 sm:mb-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               {/* Model Card 1 - Anum Fatima */}
-              <div className="group relative rounded-2xl overflow-hidden border border-amber-500/30 bg-zinc-900/90 shadow-2xl hover:border-amber-400/60 transition-all duration-500">
+              <div className="group relative rounded-2xl overflow-hidden border border-amber-500/30 bg-zinc-900/90 shadow-2xl hover:border-amber-400 transition-all duration-500 cursor-pointer">
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Image
                     src="/images/about_female_model_1.jpg"
                     alt="Anum Fatima - Co-Founder ARMUX"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 440px"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out"
                     priority
                   />
 
@@ -155,15 +155,15 @@ export default function AboutPage() {
                   <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-zinc-950/70 to-transparent pointer-events-none" />
 
                   {/* Top Badge: CO-FOUNDER */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/85 border border-amber-500/40 backdrop-blur-md">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/85 border border-amber-500/40 backdrop-blur-md z-10">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-amber-300">
                       CO-FOUNDER
                     </span>
                   </div>
 
-                  {/* Bottom Gradient Overlay for optimal text readability */}
-                  <div className="absolute bottom-0 inset-x-0 pt-20 pb-5 px-5 sm:px-6 bg-gradient-to-t from-zinc-950 via-zinc-950/85 via-50% to-transparent">
+                  {/* Default Bottom Caption (Fades out smoothly on hover) */}
+                  <div className="absolute bottom-0 inset-x-0 pt-20 pb-5 px-5 sm:px-6 bg-gradient-to-t from-zinc-950 via-zinc-950/85 via-50% to-transparent transition-opacity duration-300 group-hover:opacity-0">
                     <div className="h-0.5 w-10 bg-amber-400 mb-2 group-hover:w-16 transition-all duration-300" />
                     <h3 className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white font-display leading-tight drop-shadow-sm">
                       ANUM FATIMA
@@ -172,18 +172,73 @@ export default function AboutPage() {
                       CO-FOUNDER, ARMUX
                     </p>
                   </div>
+
+                  {/* HOVER DETAILS OVERLAY */}
+                  <div className="absolute inset-0 bg-zinc-950/95 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 translate-y-3 group-hover:translate-y-0">
+                    <div>
+                      {/* Top Role Header */}
+                      <div className="flex items-center justify-between pb-3 border-b border-amber-500/20">
+                        <span className="px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-[10px] font-black text-amber-300 uppercase tracking-widest">
+                          CO-FOUNDER & CREATIVE DIRECTOR
+                        </span>
+                        <Sparkles className="w-4 h-4 text-amber-400" />
+                      </div>
+
+                      {/* Name & Subtitle */}
+                      <div className="mt-4">
+                        <h3 className="text-2xl font-black uppercase font-display text-white tracking-wide">
+                          ANUM FATIMA
+                        </h3>
+                        <p className="text-xs font-bold text-amber-400 tracking-wider uppercase mt-0.5">
+                          Brand Strategy & Design Vision
+                        </p>
+                      </div>
+
+                      {/* Bio */}
+                      <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed mt-3 font-normal">
+                        Leading the creative spirit and identity of ARMUX. Anum drives custom sportswear concepts, ergonomic cuts, and dynamic team styling designed to empower athletes on every court.
+                      </p>
+
+                      {/* Highlights */}
+                      <div className="mt-4 space-y-1.5">
+                        <div className="flex items-center gap-2 text-[11px] text-amber-300/90 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                          <span>Bespoke Teamwear & Jersey Sublimation</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-[11px] text-amber-300/90 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                          <span>Athletic Inclusivity & Ergonomic Design</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-[11px] text-amber-300/90 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                          <span>Brand Identity & Creative Direction</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Quote & Watermark */}
+                    <div className="pt-3 border-t border-zinc-800">
+                      <p className="text-[11px] italic text-zinc-400 leading-snug">
+                        &ldquo;We don&apos;t just make jerseys; we craft the identity and pride of your team.&rdquo;
+                      </p>
+                      <div className="mt-2 flex items-center justify-between text-[9px] font-black tracking-widest text-amber-400/70 uppercase">
+                        <span>ARMUX LEADERSHIP</span>
+                        <span>OFFICIAL FOUNDER</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Model Card 2 - Arooba */}
-              <div className="group relative rounded-2xl overflow-hidden border border-amber-500/30 bg-zinc-900/90 shadow-2xl hover:border-amber-400/60 transition-all duration-500">
+              <div className="group relative rounded-2xl overflow-hidden border border-amber-500/30 bg-zinc-900/90 shadow-2xl hover:border-amber-400 transition-all duration-500 cursor-pointer">
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Image
                     src="/images/about_female_model_2.jpg"
                     alt="Arooba - Co-Founder ARMUX"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 440px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     priority
                   />
 
@@ -191,15 +246,15 @@ export default function AboutPage() {
                   <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-zinc-950/70 to-transparent pointer-events-none" />
 
                   {/* Top Badge: CO-FOUNDER */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/85 border border-amber-500/40 backdrop-blur-md">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/85 border border-amber-500/40 backdrop-blur-md z-10">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-amber-300">
                       CO-FOUNDER
                     </span>
                   </div>
 
-                  {/* Bottom Gradient Overlay for optimal text readability */}
-                  <div className="absolute bottom-0 inset-x-0 pt-20 pb-5 px-5 sm:px-6 bg-gradient-to-t from-zinc-950 via-zinc-950/85 via-50% to-transparent">
+                  {/* Default Bottom Caption (Fades out smoothly on hover) */}
+                  <div className="absolute bottom-0 inset-x-0 pt-20 pb-5 px-5 sm:px-6 bg-gradient-to-t from-zinc-950 via-zinc-950/85 via-50% to-transparent transition-opacity duration-300 group-hover:opacity-0">
                     <div className="h-0.5 w-10 bg-amber-400 mb-2 group-hover:w-16 transition-all duration-300" />
                     <h3 className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white font-display leading-tight drop-shadow-sm">
                       AROOBA
@@ -207,6 +262,61 @@ export default function AboutPage() {
                     <p className="text-xs sm:text-[13px] font-bold text-amber-300/95 tracking-wider uppercase mt-1">
                       CO-FOUNDER, ARMUX
                     </p>
+                  </div>
+
+                  {/* HOVER DETAILS OVERLAY */}
+                  <div className="absolute inset-0 bg-zinc-950/95 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 translate-y-3 group-hover:translate-y-0">
+                    <div>
+                      {/* Top Role Header */}
+                      <div className="flex items-center justify-between pb-3 border-b border-amber-500/20">
+                        <span className="px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-[10px] font-black text-amber-300 uppercase tracking-widest">
+                          CO-FOUNDER & OPERATIONS LEAD
+                        </span>
+                        <ShieldCheck className="w-4 h-4 text-amber-400" />
+                      </div>
+
+                      {/* Name & Subtitle */}
+                      <div className="mt-4">
+                        <h3 className="text-2xl font-black uppercase font-display text-white tracking-wide">
+                          AROOBA
+                        </h3>
+                        <p className="text-xs font-bold text-amber-400 tracking-wider uppercase mt-0.5">
+                          Technical Operations & Manufacturing
+                        </p>
+                      </div>
+
+                      {/* Bio */}
+                      <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed mt-3 font-normal">
+                        Directing technical execution and product quality across ARMUX. Arooba guarantees that every athletic fabric, precision stitch, and performance kit meets professional international standards.
+                      </p>
+
+                      {/* Highlights */}
+                      <div className="mt-4 space-y-1.5">
+                        <div className="flex items-center gap-2 text-[11px] text-amber-300/90 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                          <span>Technical Fabric Engineering & Quality</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-[11px] text-amber-300/90 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                          <span>Endurance & Moisture-Wicking Control</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-[11px] text-amber-300/90 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                          <span>Production Precision & Global Supply</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Quote & Watermark */}
+                    <div className="pt-3 border-t border-zinc-800">
+                      <p className="text-[11px] italic text-zinc-400 leading-snug">
+                        &ldquo;True sportswear excellence is built when no compromises are made on performance.&rdquo;
+                      </p>
+                      <div className="mt-2 flex items-center justify-between text-[9px] font-black tracking-widest text-amber-400/70 uppercase">
+                        <span>ARMUX LEADERSHIP</span>
+                        <span>OFFICIAL FOUNDER</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
