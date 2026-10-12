@@ -215,11 +215,11 @@ export default function HoodiesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {colorways.map((item) => (
             <div
               key={item.id}
-              className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
+              className="w-full md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
             >
               <div className="relative aspect-square bg-black overflow-hidden">
                 <Image
