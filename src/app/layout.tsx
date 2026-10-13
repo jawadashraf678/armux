@@ -18,6 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://armuxofficial.com"),
   title: {
     default: "ARMUX | Custom Basketball Wear and Gear",
     template: "%s | ARMUX",
@@ -34,9 +35,15 @@ export const metadata: Metadata = {
     "sportswear accessories",
   ],
   icons: {
-    icon: "/web logo.png",
-    shortcut: "/web logo.png",
-    apple: "/web logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "ARMUX | Custom Basketball Wear and Gear",
