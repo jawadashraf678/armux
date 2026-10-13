@@ -100,15 +100,15 @@ export default function CompressionPage() {
 
               {/* Quick Specs Pills */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 w-full max-w-lg">
-                <MotionCard delay={0.1} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
+                <MotionCard delay={0.1} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 hover-lift-dark transition-all">
                   <div className="text-amber-400 font-black text-lg">25-30 mmHg</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Graduated Pressure</div>
                 </MotionCard>
-                <MotionCard delay={0.15} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800">
+                <MotionCard delay={0.15} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 hover-lift-dark transition-all">
                   <div className="text-amber-400 font-black text-lg">FLATLOCK</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Zero Chafing Seams</div>
                 </MotionCard>
-                <MotionCard delay={0.2} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 col-span-2 sm:col-span-1">
+                <MotionCard delay={0.2} className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 col-span-2 sm:col-span-1 hover-lift-dark transition-all">
                   <div className="text-amber-400 font-black text-lg">RAPID RECOVERY</div>
                   <div className="text-zinc-400 text-xs uppercase font-semibold">Lactic Acid Flush</div>
                 </MotionCard>
@@ -118,16 +118,16 @@ export default function CompressionPage() {
                 <MotionButton>
                   <Link
                     href={`/contact?product=${encodeURIComponent("ARMUX Compression Gear - " + activeColorway.name)}`}
-                    className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 hover-shine btn-hover-glow"
                   >
                     <span>ORDER SQUAD COMPRESSION</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </MotionButton>
                 <MotionButton>
                   <a
                     href="#colorways"
-                    className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all"
+                    className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all btn-hover-dark"
                   >
                     VIEW ALL COMPRESSION SETS
                   </a>
@@ -137,13 +137,13 @@ export default function CompressionPage() {
 
             {/* Right Interactive Preview */}
             <MotionSlideIn direction="right" className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-zinc-900 border border-amber-500/30 overflow-hidden shadow-2xl p-6 group">
+              <div className="relative rounded-3xl bg-zinc-900 border border-amber-500/30 overflow-hidden shadow-2xl p-6 group hover-lift-dark transition-all">
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black">
                   <Image
                     src={activeColorway.image}
                     alt={activeColorway.name}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 hover-zoom-img"
                     unoptimized
                     key={activeColorway.id}
                   />
@@ -180,7 +180,7 @@ export default function CompressionPage() {
                           key={cw.id}
                           onClick={() => setActiveColorway(cw)}
                           title={cw.name}
-                          className={`w-11 h-11 rounded-xl flex items-center justify-center border-2 transition-all ${
+                          className={`w-11 h-11 rounded-xl flex items-center justify-center border-2 transition-all swatch-hover ${
                             activeColorway.id === cw.id
                               ? "border-amber-400 scale-110 shadow-lg shadow-amber-400/30"
                               : "border-zinc-700 hover:border-zinc-500 opacity-80 hover:opacity-100"
@@ -225,14 +225,14 @@ export default function CompressionPage() {
             <MotionCard
               key={item.id}
               delay={idx * 0.08}
-              className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
+              className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group hover-lift-dark"
             >
               <div className="relative aspect-square bg-black overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-center group-hover:scale-110 transition-transform duration-500 hover-zoom-img"
                   unoptimized
                 />
                 <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow">
@@ -274,17 +274,17 @@ export default function CompressionPage() {
                       setActiveColorway(item);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded-xl transition-colors"
+                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded-xl transition-all btn-hover-dark"
                   >
                     PREVIEW
                   </button>
                   <MotionButton>
                     <Link
                       href={`/contact?product=${encodeURIComponent("ARMUX Compression - " + item.name)}`}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all flex items-center justify-center gap-1"
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all flex items-center justify-center gap-1 hover-shine btn-hover-glow"
                     >
                       <span>QUOTE</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </MotionButton>
                 </div>
@@ -298,8 +298,8 @@ export default function CompressionPage() {
       <section className="py-20 bg-zinc-900 border-t border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <MotionCard delay={0.1} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
-              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <MotionCard delay={0.1} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 hover-lift-dark transition-all">
+              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 icon-hover-bounce">
                 <HeartPulse className="w-6 h-6" />
               </MotionIconBox>
               <h3 className="text-xl font-black uppercase text-white mb-2 font-display">ACCELERATED CIRCULATION</h3>
@@ -308,8 +308,8 @@ export default function CompressionPage() {
               </p>
             </MotionCard>
 
-            <MotionCard delay={0.2} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
-              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <MotionCard delay={0.2} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 hover-lift-dark transition-all">
+              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 icon-hover-bounce">
                 <ShieldAlert className="w-6 h-6" />
               </MotionIconBox>
               <h3 className="text-xl font-black uppercase text-white mb-2 font-display">VIBRATION DAMPENING</h3>
@@ -318,8 +318,8 @@ export default function CompressionPage() {
               </p>
             </MotionCard>
 
-            <MotionCard delay={0.3} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 transition-all">
-              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <MotionCard delay={0.3} className="p-8 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/40 hover-lift-dark transition-all">
+              <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 icon-hover-bounce">
                 <Zap className="w-6 h-6" />
               </MotionIconBox>
               <h3 className="text-xl font-black uppercase text-white mb-2 font-display">PROPRIOCEPTIVE AWARENESS</h3>
@@ -345,10 +345,10 @@ export default function CompressionPage() {
           <MotionButton>
             <Link
               href="/contact?product=ARMUX Team Compression Baselayer Package"
-              className="inline-flex items-center gap-2 px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded-xl shadow-2xl transition-all"
+              className="inline-flex items-center gap-2 px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded-xl shadow-2xl transition-all hover-shine btn-hover-dark hover-lift"
             >
               <span>REQUEST COMPRESSION QUOTE</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </MotionButton>
         </div>

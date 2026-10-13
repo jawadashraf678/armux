@@ -360,7 +360,7 @@ export default function AboutPage() {
                 "Your team.",
               ].map((item, idx) => (
                 <MotionCard key={idx} delay={idx * 0.08}>
-                  <div className="p-5 sm:p-6 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-amber-400/50 transition-all text-amber-300 font-black text-base sm:text-lg uppercase tracking-wider font-display">
+                  <div className="p-5 sm:p-6 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-amber-400 transition-all hover-lift-dark text-amber-300 font-black text-base sm:text-lg uppercase tracking-wider font-display hover:text-amber-200">
                     {item}
                   </div>
                 </MotionCard>
@@ -424,7 +424,7 @@ export default function AboutPage() {
               <MotionCard key={prod.num} delay={idx * 0.08}>
                 <Link
                   href={prod.link}
-                  className="p-7 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group flex flex-col justify-between h-72 block"
+                  className="p-7 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl hover-lift-light group flex flex-col justify-between h-72 block"
                 >
                   <div>
                     <span className="text-xs font-bold text-amber-600 tracking-widest uppercase">{prod.num}</span>
@@ -432,12 +432,12 @@ export default function AboutPage() {
                       {prod.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-zinc-600">
+                  <p className="text-xs text-zinc-600 leading-relaxed">
                     {prod.desc}
                   </p>
                   <div className="flex items-center text-xs font-bold text-amber-600 gap-1 uppercase tracking-wider">
                     <span>{prod.cta}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
                   </div>
                 </Link>
               </MotionCard>
@@ -478,14 +478,14 @@ export default function AboutPage() {
               },
             ].map((approach, idx) => (
               <MotionCard key={approach.num} delay={idx * 0.12}>
-                <div className="p-8 h-full rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/50 transition-all">
+                <div className="p-8 h-full rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400 transition-all hover-lift-dark group">
                   <MotionNumber delay={idx * 0.12 + 0.1}>
-                    <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 font-bold text-xl">
+                    <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 font-bold text-xl group-hover:bg-amber-500/20 group-hover:scale-110 transition-all">
                       {approach.num}
                     </div>
                   </MotionNumber>
-                  <h3 className="text-2xl font-black uppercase mb-3 font-display">{approach.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{approach.desc}</p>
+                  <h3 className="text-2xl font-black uppercase mb-3 font-display group-hover:text-amber-400 transition-colors">{approach.title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">{approach.desc}</p>
                 </div>
               </MotionCard>
             ))}
@@ -504,7 +504,7 @@ export default function AboutPage() {
           <MotionButton delay={0.2} className="inline-block">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded shadow-xl transition-all"
+              className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover-shine btn-hover-dark rounded shadow-xl transition-all"
             >
               GET A QUOTE
             </Link>

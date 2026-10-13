@@ -120,16 +120,16 @@ export default function WarmUpSuitsPage() {
                 <MotionButton>
                   <Link
                     href={`/contact?product=${encodeURIComponent("ARMUX Warm-Up Suit - " + activeColorway.name)}`}
-                    className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-4 text-xs font-black uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 rounded-xl hover-shine btn-hover-glow transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>ORDER SQUAD SUITS</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                 </MotionButton>
                 <MotionButton>
                   <a
                     href="#colorways"
-                    className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 transition-all"
+                    className="w-full sm:w-auto text-center px-8 py-4 text-xs font-black uppercase tracking-widest text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-xl border border-zinc-700 btn-hover-dark transition-all"
                   >
                     VIEW ALL SUIT COLORS
                   </a>
@@ -139,17 +139,17 @@ export default function WarmUpSuitsPage() {
 
             {/* Right Interactive Preview */}
             <MotionSlideIn direction="right" className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-zinc-900 border border-amber-500/30 overflow-hidden shadow-2xl p-6 group">
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black">
+              <div className="relative rounded-3xl bg-zinc-900 border border-amber-500/30 overflow-hidden shadow-2xl p-6 group hover-lift-dark">
+                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black hover-zoom-img">
                   <Image
                     src={activeColorway.image}
                     alt={activeColorway.name}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     unoptimized
                     key={activeColorway.id}
                   />
-                  <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest shadow">
+                  <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest shadow group-hover:scale-105 transition-transform">
                     {activeColorway.badge}
                   </MotionBadge>
                 </div>
@@ -160,7 +160,7 @@ export default function WarmUpSuitsPage() {
                       <span className="text-[10px] text-amber-400 font-black tracking-widest uppercase block">
                         ACTIVE COLORWAY
                       </span>
-                      <h3 className="text-xl font-black uppercase text-white font-display">
+                      <h3 className="text-xl font-black uppercase text-white font-display group-hover:text-amber-400 transition-colors">
                         {activeColorway.name}
                       </h3>
                     </div>
@@ -182,7 +182,7 @@ export default function WarmUpSuitsPage() {
                           key={cw.id}
                           onClick={() => setActiveColorway(cw)}
                           title={cw.name}
-                          className={`w-11 h-11 rounded-xl flex items-center justify-center border-2 transition-all ${
+                          className={`w-11 h-11 rounded-xl flex items-center justify-center border-2 transition-all swatch-hover ${
                             activeColorway.id === cw.id
                               ? "border-amber-400 scale-110 shadow-lg shadow-amber-400/30"
                               : "border-zinc-700 hover:border-zinc-500 opacity-80 hover:opacity-100"
@@ -227,17 +227,17 @@ export default function WarmUpSuitsPage() {
             <MotionCard
               key={item.id}
               delay={idx * 0.08}
-              className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col group"
+              className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl hover-lift-dark flex flex-col group"
             >
-              <div className="relative aspect-square bg-black overflow-hidden">
+              <div className="relative aspect-square bg-black overflow-hidden hover-zoom-img">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                   unoptimized
                 />
-                <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow">
+                <MotionBadge className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow group-hover:scale-105 transition-transform">
                   {item.badge}
                 </MotionBadge>
               </div>
@@ -276,17 +276,17 @@ export default function WarmUpSuitsPage() {
                       setActiveColorway(item);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded-xl transition-colors"
+                    className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded-xl btn-hover-dark transition-all"
                   >
                     PREVIEW
                   </button>
                   <MotionButton>
                     <Link
                       href={`/contact?product=${encodeURIComponent("ARMUX Warm-Up Suit - " + item.name)}`}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all flex items-center justify-center gap-1"
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 rounded-xl hover-shine btn-hover-glow transition-all flex items-center justify-center gap-1 group/btn"
                     >
                       <span>QUOTE</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                     </Link>
                   </MotionButton>
                 </div>

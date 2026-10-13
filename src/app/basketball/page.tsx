@@ -155,15 +155,15 @@ export default function BasketballPage() {
                     : ""
                 }`}
               >
-                <div className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col h-full group">
-                  <div className="relative h-80 bg-zinc-100 overflow-hidden">
+                <div className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl hover-lift-light flex flex-col h-full group">
+                  <div className="relative h-80 bg-zinc-100 overflow-hidden hover-zoom-img">
                     <Image
                       src={jersey.image}
                       alt={jersey.name}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20">
+                    <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20 group-hover:border-amber-400/60 transition-colors">
                       BASKETBALL
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export default function BasketballPage() {
 
                     <Link
                       href={`/contact?product=${encodeURIComponent(jersey.name)}`}
-                      className="w-full py-3 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow transition-colors block"
+                      className="w-full py-3 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover-shine btn-hover-glow rounded shadow transition-all block active:scale-95"
                     >
                       GET A QUOTE
                     </Link>
@@ -226,16 +226,16 @@ export default function BasketballPage() {
                     : ""
                 }`}
               >
-                <div className="rounded-3xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 transition-all duration-300 shadow-2xl flex flex-col h-full group overflow-hidden">
-                  <div className="relative h-72 bg-zinc-950 p-6 flex items-center justify-center overflow-hidden">
+                <div className="rounded-3xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-400 transition-all duration-300 shadow-2xl hover-lift-dark flex flex-col h-full group overflow-hidden">
+                  <div className="relative h-72 bg-zinc-950 p-6 flex items-center justify-center overflow-hidden hover-zoom-img">
                     <Image
                       src={ball.image}
                       alt={ball.name}
                       width={400}
                       height={400}
-                      className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
-                    <span className={`absolute top-4 left-4 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-md ${ball.badgeBg}`}>
+                    <span className={`absolute top-4 left-4 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-md group-hover:scale-105 transition-transform ${ball.badgeBg}`}>
                       {ball.badge}
                     </span>
                   </div>
@@ -267,7 +267,7 @@ export default function BasketballPage() {
 
                     <Link
                       href={`/contact?product=${encodeURIComponent(ball.name)}`}
-                      className="w-full py-3.5 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded-xl shadow-lg transition-colors block"
+                      className="w-full py-3.5 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover-shine btn-hover-glow rounded-xl shadow-lg transition-all block active:scale-95"
                     >
                       GET A QUOTE FOR {ball.name}
                     </Link>

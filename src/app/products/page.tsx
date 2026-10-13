@@ -276,15 +276,15 @@ function ProductsContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {uniformsList.map((uniform, idx) => (
               <MotionCard key={uniform.id} delay={idx * 0.08} className="h-full">
-                <div className="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col h-full group">
-                  <div className="relative h-80 bg-zinc-900 overflow-hidden">
+                <div className="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl hover-lift-dark flex flex-col h-full group">
+                  <div className="relative h-80 bg-zinc-900 overflow-hidden hover-zoom-img">
                     <Image
                       src={uniform.image}
                       alt={uniform.name}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md">
+                    <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md group-hover:scale-105 transition-transform">
                       {uniform.badge}
                     </div>
                   </div>
@@ -314,16 +314,16 @@ function ProductsContent() {
                     <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
                       <button
                         onClick={() => setSelectedProduct(uniform)}
-                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded transition-colors active:scale-95"
+                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded btn-hover-dark transition-all active:scale-95"
                       >
                         VIEW DETAILS
                       </button>
                       <Link
                         href={`/contact?product=${encodeURIComponent(uniform.name)}`}
-                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded transition-all flex items-center justify-center gap-1 active:scale-95"
+                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 rounded hover-shine btn-hover-glow transition-all flex items-center justify-center gap-1 active:scale-95 group/btn"
                       >
                         <span>GET QUOTE</span>
-                        <ChevronRight className="w-3.5 h-3.5" />
+                        <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                       </Link>
                     </div>
                   </div>
@@ -354,15 +354,15 @@ function ProductsContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {apparelList.map((apparel, idx) => (
               <MotionCard key={apparel.id} delay={idx * 0.08} className="h-full">
-                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl flex flex-col h-full group">
-                  <div className="relative h-80 bg-zinc-950 overflow-hidden">
+                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-xl hover-lift-dark flex flex-col h-full group">
+                  <div className="relative h-80 bg-zinc-950 overflow-hidden hover-zoom-img">
                     <Image
                       src={apparel.image}
                       alt={apparel.name}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md">
+                    <div className="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest shadow-md group-hover:scale-105 transition-transform">
                       {apparel.badge}
                     </div>
                   </div>
@@ -401,25 +401,25 @@ function ProductsContent() {
                       {apparel.pageUrl ? (
                         <Link
                           href={apparel.pageUrl}
-                          className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded transition-colors flex items-center justify-center gap-1 active:scale-95"
+                          className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded btn-hover-dark transition-all flex items-center justify-center gap-1 active:scale-95 group/linkbtn"
                         >
                           <span>ALL COLORS</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/linkbtn:translate-x-1" />
                         </Link>
                       ) : (
                         <button
                           onClick={() => setSelectedProduct(apparel)}
-                          className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded transition-colors active:scale-95"
+                          className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-200 bg-zinc-800 hover:bg-zinc-700 rounded btn-hover-dark transition-all active:scale-95"
                         >
                           VIEW DETAILS
                         </button>
                       )}
                       <Link
                         href={`/contact?product=${encodeURIComponent(apparel.name)}`}
-                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded transition-all flex items-center justify-center gap-1 active:scale-95"
+                        className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 to-amber-500 rounded hover-shine btn-hover-glow transition-all flex items-center justify-center gap-1 active:scale-95 group/btn"
                       >
                         <span>GET QUOTE</span>
-                        <ChevronRight className="w-3.5 h-3.5" />
+                        <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                       </Link>
                     </div>
                   </div>
@@ -465,15 +465,15 @@ function ProductsContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product, idx) => (
             <MotionCard key={product.id} delay={Math.min(idx * 0.05, 0.4)} className="h-full">
-              <div className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col h-full group">
-                <div className="relative h-72 bg-zinc-100 overflow-hidden">
+              <div className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl hover-lift-light flex flex-col h-full group">
+                <div className="relative h-72 bg-zinc-100 overflow-hidden hover-zoom-img">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20">
+                  <div className="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20 group-hover:border-amber-400/60 transition-colors">
                     {product.category}
                   </div>
                 </div>
@@ -500,13 +500,13 @@ function ProductsContent() {
                   <div className="grid grid-cols-2 gap-3 pt-4 border-t border-zinc-200">
                     <button
                       onClick={() => setSelectedProduct(product)}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-800 bg-zinc-200 hover:bg-zinc-300 rounded transition-colors active:scale-95"
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-zinc-800 bg-zinc-200 hover:bg-zinc-300 rounded btn-hover-dark transition-all active:scale-95"
                     >
                       VIEW DETAILS
                     </button>
                     <Link
                       href={`/contact?product=${encodeURIComponent(product.name)}`}
-                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-amber-400 hover:bg-amber-300 rounded transition-colors active:scale-95"
+                      className="py-2.5 px-3 text-center font-bold text-xs uppercase tracking-wider text-black bg-amber-400 hover-shine btn-hover-glow rounded transition-all active:scale-95"
                     >
                       GET A QUOTE
                     </Link>
@@ -531,13 +531,13 @@ function ProductsContent() {
             >
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center hover:bg-amber-400 hover:text-black transition-colors"
+                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center hover:bg-amber-400 hover:text-black hover:rotate-90 hover:scale-110 transition-all duration-200"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative h-64 md:h-auto bg-zinc-100">
+                <div className="relative h-64 md:h-auto bg-zinc-100 overflow-hidden">
                   <Image
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
@@ -574,13 +574,13 @@ function ProductsContent() {
                   <div className="space-y-3 pt-4 border-t border-zinc-200">
                     <Link
                       href={`/contact?product=${encodeURIComponent(selectedProduct.name)}`}
-                      className="w-full block py-3 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow"
+                      className="w-full block py-3 text-center font-extrabold text-xs uppercase tracking-widest text-black bg-amber-400 hover-shine btn-hover-glow rounded shadow"
                     >
                       REQUEST QUOTE FOR THIS ITEM
                     </Link>
                     <Link
                       href="/teamwear"
-                      className="w-full block py-2.5 text-center font-bold text-xs uppercase tracking-widest text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded"
+                      className="w-full block py-2.5 text-center font-bold text-xs uppercase tracking-widest text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded btn-hover-dark transition-all"
                     >
                       CUSTOMIZE TEAM LOGO & COLORS
                     </Link>
@@ -609,10 +609,10 @@ function ProductsContent() {
           <MotionButton delay={0.2} className="inline-block">
             <Link
               href="/teamwear"
-              className="inline-flex items-center gap-2 px-8 py-4 font-black text-xs uppercase tracking-widest text-black bg-amber-400 hover:bg-amber-300 rounded shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 font-black text-xs uppercase tracking-widest text-black bg-amber-400 hover-shine btn-hover-glow rounded shadow-xl transition-all group"
             >
               <span>CUSTOMIZE YOUR TEAMWEAR</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </MotionButton>
         </div>

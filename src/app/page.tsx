@@ -116,20 +116,20 @@ export default function HomePage() {
             <MotionButton delay={0.45} className="w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 font-black text-sm uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded shadow-xl shadow-amber-500/25 hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 font-black text-sm uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded shadow-xl shadow-amber-500/25 hover-shine btn-hover-glow transition-all flex items-center justify-center gap-2 group border border-amber-300/40"
               >
                 <span>GET A QUOTE</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </MotionButton>
 
             <MotionButton delay={0.55} className="w-full sm:w-auto">
               <Link
                 href="/products"
-                className="w-full sm:w-auto px-8 py-4 font-black text-sm uppercase tracking-widest text-white bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 hover:border-amber-400 rounded transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 font-black text-sm uppercase tracking-widest text-white bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 hover:border-amber-400 rounded btn-hover-dark transition-all flex items-center justify-center gap-2 group"
               >
                 <span>EXPLORE PRODUCTS</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
+                <ChevronRight className="w-4 h-4 text-amber-400 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </MotionButton>
           </div>
@@ -158,11 +158,11 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <MotionCard delay={0.1} className="h-full">
-              <div className="p-8 h-full rounded-2xl bg-zinc-50 border border-zinc-200/80 hover:border-amber-400/60 transition-all shadow-sm hover:shadow-xl group">
-                <MotionIconBox className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6">
+              <div className="p-8 h-full rounded-2xl bg-zinc-50 border border-zinc-200/80 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl hover-lift-light group">
+                <MotionIconBox className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6 group-hover:bg-amber-500/20 group-hover:border-amber-500/60 transition-all">
                   <Shirt className="w-7 h-7" />
                 </MotionIconBox>
-                <h3 className="text-xl font-extrabold uppercase tracking-wide text-zinc-900 mb-3">
+                <h3 className="text-xl font-extrabold uppercase tracking-wide text-zinc-900 mb-3 group-hover:text-amber-700 transition-colors">
                   FULLY CUSTOMIZABLE
                 </h3>
                 <p className="text-sm font-medium text-amber-600 mb-2">
@@ -175,11 +175,11 @@ export default function HomePage() {
             </MotionCard>
 
             <MotionCard delay={0.2} className="h-full">
-              <div className="p-8 h-full rounded-2xl bg-zinc-50 border border-zinc-200/80 hover:border-amber-400/60 transition-all shadow-sm hover:shadow-xl group">
-                <MotionIconBox className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6">
+              <div className="p-8 h-full rounded-2xl bg-zinc-50 border border-zinc-200/80 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl hover-lift-light group">
+                <MotionIconBox className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6 group-hover:bg-amber-500/20 group-hover:border-amber-500/60 transition-all">
                   <Zap className="w-7 h-7" />
                 </MotionIconBox>
-                <h3 className="text-xl font-extrabold uppercase tracking-wide text-zinc-900 mb-3">
+                <h3 className="text-xl font-extrabold uppercase tracking-wide text-zinc-900 mb-3 group-hover:text-amber-700 transition-colors">
                   PERFORMANCE FOCUSED
                 </h3>
                 <p className="text-sm font-medium text-amber-600 mb-2">
@@ -192,11 +192,11 @@ export default function HomePage() {
             </MotionCard>
 
             <MotionCard delay={0.3} className="h-full">
-              <div className="p-8 h-full rounded-2xl bg-zinc-50 border border-zinc-200/80 hover:border-amber-400/60 transition-all shadow-sm hover:shadow-xl group">
-                <MotionIconBox className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6">
+              <div className="p-8 h-full rounded-2xl bg-zinc-50 border border-zinc-200/80 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl hover-lift-light group">
+                <MotionIconBox className="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6 group-hover:bg-amber-500/20 group-hover:border-amber-500/60 transition-all">
                   <Users className="w-7 h-7" />
                 </MotionIconBox>
-                <h3 className="text-xl font-extrabold uppercase tracking-wide text-zinc-900 mb-3">
+                <h3 className="text-xl font-extrabold uppercase tracking-wide text-zinc-900 mb-3 group-hover:text-amber-700 transition-colors">
                   TEAM READY
                 </h3>
                 <p className="text-sm font-medium text-amber-600 mb-2">
@@ -258,22 +258,22 @@ export default function HomePage() {
               <MotionCard key={cat.title} delay={index * 0.1}>
                 <Link
                   href={cat.link}
-                  className="group relative h-96 rounded-2xl overflow-hidden border border-zinc-800 hover:border-amber-400/80 transition-all duration-300 shadow-xl block"
+                  className="group relative h-96 rounded-2xl overflow-hidden border border-zinc-800 hover:border-amber-400 transition-all duration-300 shadow-xl block hover-lift-dark hover-shine"
                 >
                   <Image
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    className="object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent group-hover:via-black/20 transition-all duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <span className="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-1">
+                    <span className="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-1 group-hover:translate-x-1 transition-transform">
                       {cat.subtitle}
                     </span>
                     <h3 className="text-2xl font-black uppercase text-white font-display flex items-center justify-between">
-                      <span>{cat.title}</span>
-                      <ArrowRight className="w-5 h-5 text-amber-400 transform -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
+                      <span className="group-hover:text-amber-300 transition-colors">{cat.title}</span>
+                      <ArrowRight className="w-5 h-5 text-amber-400 transform -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
                     </h3>
                   </div>
                 </Link>
@@ -302,17 +302,17 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((prod, index) => (
               <MotionCard key={prod.name} delay={index * 0.08} className="h-full">
-                <div className="rounded-2xl overflow-hidden bg-zinc-50 border border-zinc-200/80 hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col h-full group">
-                  <div className="relative h-72 bg-zinc-100 overflow-hidden">
+                <div className="rounded-2xl overflow-hidden bg-zinc-50 border border-zinc-200/80 hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl hover-lift-light flex flex-col h-full group">
+                  <div className="relative h-72 bg-zinc-100 overflow-hidden hover-zoom-img">
                     <Image
                       src={prod.image}
                       alt={prod.name}
                       fill
                       unoptimized
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
                     <MotionBadge delay={0.15} className="absolute top-4 left-4 z-10">
-                      <div className="bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20">
+                      <div className="bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-500/20 group-hover:border-amber-400/60 transition-colors">
                         CUSTOMIZABLE
                       </div>
                     </MotionBadge>
@@ -332,7 +332,7 @@ export default function HomePage() {
                       <MotionButton className="w-full">
                         <Link
                           href="/contact"
-                          className="w-full block py-2.5 px-4 text-center font-bold text-xs uppercase tracking-wider text-black bg-amber-400 hover:bg-amber-300 rounded transition-colors"
+                          className="w-full block py-2.5 px-4 text-center font-bold text-xs uppercase tracking-wider text-black bg-amber-400 hover-shine btn-hover-glow rounded transition-all shadow-sm"
                         >
                           GET A QUOTE
                         </Link>
@@ -340,7 +340,7 @@ export default function HomePage() {
                       <MotionButton className="w-full">
                         <Link
                           href="/products"
-                          className="w-full block py-2.5 px-4 text-center font-bold text-xs uppercase tracking-wider text-zinc-800 bg-zinc-200 hover:bg-zinc-300 rounded transition-colors"
+                          className="w-full block py-2.5 px-4 text-center font-bold text-xs uppercase tracking-wider text-zinc-800 bg-zinc-200 hover:bg-zinc-300 hover:text-black rounded btn-hover-dark transition-all"
                         >
                           DETAILS
                         </Link>
@@ -356,10 +356,10 @@ export default function HomePage() {
             <MotionButton className="inline-block">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 px-8 py-4 font-black text-sm uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded transition-all shadow-lg hover:shadow-amber-500/10"
+                className="inline-flex items-center gap-2 px-8 py-4 font-black text-sm uppercase tracking-widest text-white bg-zinc-950 hover-shine btn-hover-dark rounded transition-all shadow-lg hover:shadow-amber-500/20 group"
               >
                 <span>VIEW ALL PRODUCTS</span>
-                <ArrowRight className="w-4 h-4 text-amber-400" />
+                <ArrowRight className="w-4 h-4 text-amber-400 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </MotionButton>
           </MotionFadeUp>
@@ -403,14 +403,14 @@ export default function HomePage() {
               },
             ].map((item, index) => (
               <MotionCard key={item.num} delay={index * 0.1}>
-                <div className="p-6 h-full rounded-xl bg-zinc-950 border border-zinc-800 hover:border-amber-400/50 transition-all">
+                <div className="p-6 h-full rounded-xl bg-zinc-950 border border-zinc-800 hover:border-amber-400 transition-all hover-lift-dark group">
                   <MotionNumber delay={index * 0.1 + 0.15}>
-                    <div className="text-amber-400 font-extrabold text-2xl font-display mb-3">
+                    <div className="text-amber-400 font-extrabold text-2xl font-display mb-3 group-hover:scale-110 group-hover:text-amber-300 transition-all origin-left">
                       {item.num}
                     </div>
                   </MotionNumber>
-                  <h3 className="text-lg font-bold uppercase mb-2">{item.title}</h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg font-bold uppercase mb-2 group-hover:text-amber-400 transition-colors">{item.title}</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">{item.desc}</p>
                 </div>
               </MotionCard>
             ))}
@@ -442,7 +442,7 @@ export default function HomePage() {
             <MotionButton delay={0.3} className="w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded shadow-2xl transition-all flex items-center justify-center"
+                className="w-full sm:w-auto px-8 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover-shine btn-hover-dark rounded shadow-2xl transition-all flex items-center justify-center border border-zinc-800"
               >
                 GET A QUOTE
               </Link>
@@ -453,9 +453,9 @@ export default function HomePage() {
                 href="https://wa.me/923201713838"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 font-black text-xs uppercase tracking-widest text-zinc-950 bg-white hover:bg-zinc-100 rounded border border-zinc-900 shadow-md flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 font-black text-xs uppercase tracking-widest text-zinc-950 bg-white hover:bg-zinc-100 rounded border border-zinc-900 shadow-md hover-shine btn-hover-glow flex items-center justify-center gap-2 group"
               >
-                <MessageSquare className="w-4 h-4 fill-current text-emerald-600" />
+                <MessageSquare className="w-4 h-4 fill-current text-emerald-600 group-hover:rotate-12 transition-transform duration-200" />
                 WHATSAPP US
               </a>
             </MotionButton>

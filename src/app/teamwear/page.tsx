@@ -115,12 +115,12 @@ export default function TeamwearPage() {
               const IconComp = item.icon;
               return (
                 <MotionCard key={item.num} delay={idx * 0.08}>
-                  <div className="p-6 h-full rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl group">
-                    <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4">{item.num}</div>
-                    <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4">
+                  <div className="p-6 h-full rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl hover-lift-light group">
+                    <div className="text-amber-500 font-extrabold text-xs tracking-widest uppercase mb-4 group-hover:text-amber-600 transition-colors">{item.num}</div>
+                    <MotionIconBox className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:bg-amber-500/20 group-hover:scale-110 transition-all">
                       <IconComp className="w-6 h-6" />
                     </MotionIconBox>
-                    <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2">{item.title}</h3>
+                    <h3 className="text-lg font-extrabold uppercase text-zinc-950 mb-2 group-hover:text-amber-600 transition-colors">{item.title}</h3>
                     <p className="text-xs text-zinc-600 leading-relaxed">{item.desc}</p>
                   </div>
                 </MotionCard>
@@ -406,12 +406,12 @@ export default function TeamwearPage() {
               },
             ].map((step, idx) => (
               <MotionCard key={step.num} delay={idx * 0.1}>
-                <div className="p-8 h-full rounded-2xl bg-zinc-950 border border-zinc-800">
+                <div className="p-8 h-full rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-amber-400 transition-all hover-lift-dark group">
                   <MotionNumber delay={idx * 0.1 + 0.15}>
-                    <div className="text-3xl font-black text-amber-400 font-display mb-4">{step.num}</div>
+                    <div className="text-3xl font-black text-amber-400 font-display mb-4 group-hover:scale-110 group-hover:text-amber-300 transition-transform origin-left">{step.num}</div>
                   </MotionNumber>
-                  <h3 className="text-lg font-bold uppercase mb-2">{step.title}</h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{step.desc}</p>
+                  <h3 className="text-lg font-bold uppercase mb-2 group-hover:text-amber-400 transition-colors">{step.title}</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">{step.desc}</p>
                 </div>
               </MotionCard>
             ))}
@@ -431,7 +431,7 @@ export default function TeamwearPage() {
           <MotionButton delay={0.2} className="inline-block">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover:bg-zinc-800 rounded shadow-xl transition-all"
+              className="inline-flex items-center justify-center px-10 py-4 font-black text-xs uppercase tracking-widest text-white bg-zinc-950 hover-shine btn-hover-dark rounded shadow-xl transition-all"
             >
               GET A QUOTE
             </Link>

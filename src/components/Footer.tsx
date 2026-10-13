@@ -25,10 +25,10 @@ export default function Footer() {
                 href="https://www.facebook.com/share/1DefhQb8Cj/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 hover:scale-110 active:scale-95 transition-all"
+                className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400 hover:shadow-[0_0_15px_rgba(251,191,36,0.35)] hover:-translate-y-1 active:scale-95 transition-all duration-200"
                 aria-label="Facebook"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </a>
@@ -36,10 +36,10 @@ export default function Footer() {
                 href="https://www.instagram.com/armuxofficial?exln=MWI1Y3IydGM4bTVwNA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400/50 hover:scale-110 active:scale-95 transition-all"
+                className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-amber-400 hover:border-amber-400 hover:shadow-[0_0_15px_rgba(251,191,36,0.35)] hover:-translate-y-1 active:scale-95 transition-all duration-200"
                 aria-label="Instagram"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
               </a>
@@ -65,10 +65,10 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-amber-400 transition-colors flex items-center gap-1 group"
+                    className="hover:text-amber-400 transition-all duration-200 flex items-center gap-1.5 group py-0.5 hover:translate-x-1.5"
                   >
-                    <span className="text-xs text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity">›</span>
-                    <span>{link.name}</span>
+                    <span className="text-xs text-amber-500 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all">›</span>
+                    <span className="group-hover:text-amber-300 transition-colors">{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -81,41 +81,25 @@ export default function Footer() {
               CATEGORIES
             </h3>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link href="/hoodies" className="hover:text-amber-400 transition-colors">
-                  Performance Basketball Hoodies
-                </Link>
-              </li>
-              <li>
-                <Link href="/warmup-suits" className="hover:text-amber-400 transition-colors">
-                  Warm Up Suits & Tracksuits
-                </Link>
-              </li>
-              <li>
-                <Link href="/training-suits" className="hover:text-amber-400 transition-colors">
-                  Precision Training & Drill Suits
-                </Link>
-              </li>
-              <li>
-                <Link href="/compression" className="hover:text-amber-400 transition-colors">
-                  Graduated Compression Gear
-                </Link>
-              </li>
-              <li>
-                <Link href="/basketball" className="hover:text-amber-400 transition-colors">
-                  Elite Basketball Jerseys
-                </Link>
-              </li>
-              <li>
-                <Link href="/accessories" className="hover:text-amber-400 transition-colors">
-                  Performance Accessories
-                </Link>
-              </li>
-              <li>
-                <Link href="/teamwear" className="hover:text-amber-400 transition-colors">
-                  Full Teamwear Customization
-                </Link>
-              </li>
+              {[
+                { name: "Performance Basketball Hoodies", href: "/hoodies" },
+                { name: "Warm Up Suits & Tracksuits", href: "/warmup-suits" },
+                { name: "Precision Training & Drill Suits", href: "/training-suits" },
+                { name: "Graduated Compression Gear", href: "/compression" },
+                { name: "Elite Basketball Jerseys", href: "/basketball" },
+                { name: "Performance Accessories", href: "/accessories" },
+                { name: "Full Teamwear Customization", href: "/teamwear" },
+              ].map((cat) => (
+                <li key={cat.name}>
+                  <Link
+                    href={cat.href}
+                    className="hover:text-amber-400 transition-all duration-200 flex items-center gap-1.5 group py-0.5 hover:translate-x-1.5"
+                  >
+                    <span className="text-xs text-amber-500 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all">›</span>
+                    <span className="group-hover:text-amber-300 transition-colors">{cat.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -129,34 +113,40 @@ export default function Footer() {
                 href="https://wa.me/923201713838"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-zinc-300 hover:text-amber-400 transition-colors p-2 rounded bg-zinc-900/60 border border-zinc-800"
+                className="flex items-center gap-3 text-zinc-300 hover:text-amber-400 transition-all p-2.5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-400/60 hover:bg-zinc-900 hover:-translate-y-0.5 hover:shadow-lg group"
               >
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                </div>
                 <div>
                   <div className="text-[10px] text-zinc-500 uppercase font-semibold">WHATSAPP / PHONE</div>
-                  <div className="font-bold text-zinc-200">+92 320 1713838</div>
+                  <div className="font-bold text-zinc-200 group-hover:text-amber-300 transition-colors">+92 320 1713838</div>
                 </div>
               </a>
 
               <a
                 href="mailto:info@armuxofficial.com"
-                className="flex items-center gap-3 text-zinc-300 hover:text-amber-400 transition-colors p-2 rounded bg-zinc-900/60 border border-zinc-800"
+                className="flex items-center gap-3 text-zinc-300 hover:text-amber-400 transition-all p-2.5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-400/60 hover:bg-zinc-900 hover:-translate-y-0.5 hover:shadow-lg group"
               >
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                </div>
                 <div className="overflow-hidden">
                   <div className="text-[10px] text-zinc-500 uppercase font-semibold">GENERAL INQUIRIES</div>
-                  <div className="font-bold text-zinc-200 truncate">info@armuxofficial.com</div>
+                  <div className="font-bold text-zinc-200 truncate group-hover:text-amber-300 transition-colors">info@armuxofficial.com</div>
                 </div>
               </a>
 
               <a
                 href="mailto:sales@armuxofficial.com"
-                className="flex items-center gap-3 text-zinc-300 hover:text-amber-400 transition-colors p-2 rounded bg-zinc-900/60 border border-zinc-800"
+                className="flex items-center gap-3 text-zinc-300 hover:text-amber-400 transition-all p-2.5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-400/60 hover:bg-zinc-900 hover:-translate-y-0.5 hover:shadow-lg group"
               >
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                </div>
                 <div className="overflow-hidden">
                   <div className="text-[10px] text-zinc-500 uppercase font-semibold">SALES DEPARTMENT</div>
-                  <div className="font-bold text-zinc-200 truncate">sales@armuxofficial.com</div>
+                  <div className="font-bold text-zinc-200 truncate group-hover:text-amber-300 transition-colors">sales@armuxofficial.com</div>
                 </div>
               </a>
 

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsapp from "@/components/FloatingWhatsapp";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable} scroll-smooth`}>
       <body className="bg-white text-zinc-900 antialiased min-h-screen flex flex-col selection:bg-amber-400 selection:text-black">
+        <SmoothScroll />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

@@ -88,7 +88,7 @@ function ThankYouContent() {
         </p>
 
         {/* Luxury Confirmation Card / Receipt */}
-        <div className="bg-zinc-900/90 border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/80 mb-12 text-left relative overflow-hidden backdrop-blur-xl">
+        <div className="bg-zinc-900/90 border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/80 mb-12 text-left relative overflow-hidden backdrop-blur-xl hover-lift-dark transition-all">
           <div className="absolute top-0 right-0 w-36 h-36 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-zinc-800 gap-4">
@@ -154,13 +154,13 @@ function ThankYouContent() {
             {nextSteps.map((s) => (
               <div
                 key={s.step}
-                className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 transition-all flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 hover-lift-dark transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center font-mono font-black text-sm mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center font-mono font-black text-sm mb-4 group-hover:scale-110 transition-transform">
                     {s.step}
                   </div>
-                  <h3 className="text-base font-extrabold text-white uppercase font-display mb-2">
+                  <h3 className="text-base font-extrabold text-white uppercase font-display mb-2 group-hover:text-amber-400 transition-colors">
                     {s.title}
                   </h3>
                   <p className="text-xs text-zinc-400 leading-relaxed">
@@ -178,7 +178,7 @@ function ThankYouContent() {
             href={`https://wa.me/923201713838?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex-1 py-4 px-6 font-black text-xs uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto flex-1 py-4 px-6 font-black text-xs uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 rounded-xl transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 hover-shine btn-hover-glow hover-lift"
           >
             <MessageSquare className="w-4 h-4 text-black" />
             <span>FAST-TRACK ON WHATSAPP</span>
@@ -186,7 +186,7 @@ function ThankYouContent() {
 
           <Link
             href="/products"
-            className="w-full sm:w-auto flex-1 py-4 px-6 font-black text-xs uppercase tracking-widest text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-amber-400 rounded-xl transition-all flex items-center justify-center gap-2"
+            className="w-full sm:w-auto flex-1 py-4 px-6 font-black text-xs uppercase tracking-widest text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-amber-400 rounded-xl transition-all flex items-center justify-center gap-2 btn-hover-dark hover-lift"
           >
             <Layers className="w-4 h-4 text-amber-400" />
             <span>EXPLORE PRODUCTS</span>
@@ -194,7 +194,7 @@ function ThankYouContent() {
 
           <Link
             href="/"
-            className="w-full sm:w-auto py-4 px-5 font-black text-xs uppercase tracking-widest text-zinc-400 hover:text-white bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 rounded-xl transition-all flex items-center justify-center gap-1.5"
+            className="w-full sm:w-auto py-4 px-5 font-black text-xs uppercase tracking-widest text-zinc-400 hover:text-white bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 rounded-xl transition-all flex items-center justify-center gap-1.5 btn-hover-dark hover-lift"
             title="Return to Home"
           >
             <Home className="w-4 h-4" />

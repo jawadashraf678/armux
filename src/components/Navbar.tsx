@@ -22,7 +22,7 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -97,32 +97,34 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           {/* Brand Logo */}
-          <Link href="/" className="group flex items-center transform hover:scale-105 transition-transform duration-200">
-            <ArmuxLogo size="md" showTagline={false} />
+          <Link href="/" className="group flex items-center shrink-0 transform hover:scale-105 transition-transform duration-200">
+            <ArmuxLogo size="sm" showTagline={false} />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center space-x-1 lg:space-x-3">
+          <nav className="hidden xl:flex items-center space-x-1 lg:space-x-2 shrink-0">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href === "/products" && pathname.startsWith("/products"));
               
               if (link.name === "PRODUCTS") {
                 return (
-                  <div key={link.name} className="relative group">
+                  <div key={link.name} className="relative group shrink-0">
                     <Link
                       href={link.href}
-                      className={`relative px-3 py-2 text-xs font-bold tracking-wider transition-all duration-200 uppercase flex items-center gap-1 ${
+                      className={`relative px-3 py-2 text-xs font-bold tracking-wider transition-all duration-200 uppercase flex items-center gap-1 rounded-lg hover:bg-white/5 whitespace-nowrap ${
                         isActive
                           ? "text-amber-400"
-                          : "text-zinc-300 hover:text-white"
+                          : "text-zinc-300 hover:text-amber-300"
                       }`}
                     >
-                      <span>{link.name}</span>
-                      <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200" />
-                      {isActive && (
-                        <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-amber-400 to-amber-600 rounded-full" />
+                      <span className="whitespace-nowrap">{link.name}</span>
+                      <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-300 text-amber-400/80 shrink-0" />
+                      {isActive ? (
+                        <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-amber-400 to-amber-600 rounded-full shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                      ) : (
+                        <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                       )}
                     </Link>
 
@@ -142,16 +144,16 @@ export default function Navbar() {
                               key={item.name}
                               href={item.href}
                               onClick={() => setSelectedCategory(item.name)}
-                              className={`flex flex-col px-3 py-2.5 rounded-xl transition-all duration-200 hover:translate-x-1 ${
+                              className={`flex flex-col px-3 py-2.5 rounded-xl transition-all duration-200 hover:translate-x-1.5 hover:shadow-lg ${
                                 isActive
                                     ? "bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/60 shadow-[0_0_15px_rgba(251,191,36,0.18)]"
-                                  : "bg-[#121215] hover:bg-[#18181d] border border-zinc-800/80 hover:border-zinc-700"
+                                  : "bg-[#121215] hover:bg-[#1c1c24] border border-zinc-800/80 hover:border-amber-500/50"
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <span
-                                  className={`text-xs font-black uppercase tracking-wider ${
-                                    isActive ? "text-amber-400" : "text-white"
+                                  className={`text-xs font-black uppercase tracking-wider transition-colors ${
+                                    isActive ? "text-amber-400" : "text-white group-hover:text-amber-300"
                                   }`}
                                 >
                                   {item.name}
@@ -168,8 +170,8 @@ export default function Navbar() {
                                 ) : null}
                               </div>
                               <span
-                                className={`text-[10px] mt-0.5 font-medium ${
-                                  isActive ? "text-amber-200/90 font-semibold" : "text-zinc-400"
+                                className={`text-[10px] mt-0.5 font-medium transition-colors ${
+                                  isActive ? "text-amber-200/90 font-semibold" : "text-zinc-400 group-hover:text-zinc-300"
                                 }`}
                               >
                                 {item.desc}
@@ -187,15 +189,17 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative px-3 py-2 text-xs font-bold tracking-wider transition-all duration-200 uppercase ${
+                  className={`relative px-3 py-2 text-xs font-bold tracking-wider transition-all duration-200 uppercase rounded-lg hover:bg-white/5 whitespace-nowrap shrink-0 ${
                     isActive
                       ? "text-amber-400"
-                      : "text-zinc-300 hover:text-white"
+                      : "text-zinc-300 hover:text-amber-300"
                   }`}
                 >
-                  {link.name}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-amber-400 to-amber-600 rounded-full" />
+                  <span className="whitespace-nowrap">{link.name}</span>
+                  {isActive ? (
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-amber-400 to-amber-600 rounded-full shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                  ) : (
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-amber-400 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-200" />
                   )}
                 </Link>
               );
@@ -206,11 +210,11 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/contact"
-              className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-xs uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded hover:brightness-110 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md shadow-amber-500/20 group animate-pulse-glow"
+              className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-xs uppercase tracking-widest text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded hover-shine btn-hover-glow transition-all duration-300 shadow-lg shadow-amber-500/25 group border border-amber-300/40"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 GET A QUOTE
-                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </span>
             </Link>
           </div>

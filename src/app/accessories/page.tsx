@@ -378,18 +378,18 @@ export default function AccessoriesPage() {
                 <MotionCard
                   key={item.name}
                   delay={idx * 0.05}
-                  className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col group"
+                  className="rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden hover:border-amber-400 transition-all duration-300 shadow-sm hover:shadow-xl hover-lift-light flex flex-col group"
                 >
-                  <div className="relative h-80 bg-zinc-100 overflow-hidden p-3 flex items-center justify-center">
+                  <div className="relative h-80 bg-zinc-100 overflow-hidden p-3 flex items-center justify-center hover-zoom-img">
                     <Image
                       key={`${item.name}-${activeColorKey}`}
                       src={currentImage}
                       alt={`${item.name} - ${activeColorObj?.label}`}
                       width={500}
                       height={500}
-                      className="object-cover w-full h-full rounded-xl group-hover:scale-105 transition-all duration-500 shadow-sm"
+                      className="object-cover w-full h-full rounded-xl group-hover:scale-108 transition-all duration-700 ease-out shadow-sm"
                     />
-                    <MotionBadge className="absolute top-5 left-5 bg-zinc-950/90 backdrop-blur-md px-3 py-1 rounded-md text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-400/30 shadow-md">
+                    <MotionBadge className="absolute top-5 left-5 bg-zinc-950/90 backdrop-blur-md px-3 py-1 rounded-md text-[10px] font-bold text-amber-400 uppercase tracking-widest border border-amber-400/30 shadow-md group-hover:scale-105 transition-transform">
                       {activeColorObj?.label.toUpperCase()}
                     </MotionBadge>
                   </div>
@@ -416,10 +416,10 @@ export default function AccessoriesPage() {
                                 key={c.id}
                                 onClick={() => handleCardColorSelect(item.name, c.id)}
                                 title={c.label}
-                                className={`group/btn relative w-8 h-8 rounded-full ${c.bg} border-2 ${c.border} flex items-center justify-center transition-all duration-200 shadow-sm ${
+                                className={`group/btn relative w-8 h-8 rounded-full ${c.bg} border-2 ${c.border} flex items-center justify-center transition-all duration-200 shadow-sm swatch-hover ${
                                   isSelected
                                     ? "ring-2 ring-amber-500 scale-110 shadow-md"
-                                    : "opacity-85 hover:opacity-100 hover:scale-105"
+                                    : "opacity-85 hover:opacity-100"
                                 }`}
                               >
                                 {isSelected && (
@@ -438,7 +438,7 @@ export default function AccessoriesPage() {
                     <MotionButton>
                       <Link
                         href={`/contact?product=${encodeURIComponent(item.name)}&color=${encodeURIComponent(activeColorObj?.label || "")}`}
-                        className="w-full py-3.5 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-zinc-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 block"
+                        className="w-full py-3.5 px-4 text-center font-extrabold text-xs uppercase tracking-widest text-zinc-950 bg-amber-400 hover-shine btn-hover-glow rounded-lg shadow-sm transition-all duration-200 block active:scale-95"
                       >
                         GET A QUOTE ({activeColorObj?.label})
                       </Link>
